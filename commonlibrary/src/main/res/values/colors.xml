@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="splash_bg">#0867AB</color>
+    <color name="dodger_blue">#34bcff</color>
+    <!--带有94%透明度的dodger_blue-->
+    <color name="dodger_blue_94">#ef34bcff</color>//
+    <color name="dark_blue">#24B1F6</color>
+    <color name="coral">#f85959</color>
+    <color name="dark_red">#e74141</color>
+    <color name="color_title_bg_light">#b7a7a7</color>
+    <!--带有94%透明度的white-->
+    <color name="white_94">#efffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="white_two">#f6f6f6</color>
+    <color name="white_three">#dfdfdf</color>
+    <color name="white_four">#d8d8d8</color>
+    <color name="white_five">#f8f8f8</color>
+    <color name="white_six">#f0f0f0</color>
+    <color name="white_70">#b3ffffff</color>
+    <color name="black">#1c1c1c</color>
+    <color name="black_50">#00001c05</color>
+    <color name="fsaf">#7e1c1c1c</color>
+    <color name="greyish_brown">#454545</color>
+    <color name="perrywinkle">#759cde</color>
+    <color name="brownish_grey">#666666</color>
+    <color name="warm_grey">#999999</color>
+    <color name="denim_blue">#416699</color>
+    <color name="cool_grey">#979fac</color>
+    <color name="azure">#188eee</color>
+    <color name="greyish_brown_two">#454545</color>
+    <color name="deep_orange">#e85509</color>
+    <color name="light_tan">#fbfaba</color>
+    <color name="squash">#f5a623</color>
+    <color name="kiwi">#a5ed4d</color>
+    <color name="pale_blue">#f3f9fe</color>
+    <color name="pinkish_grey">#cccccc</color>
+    <color name="steel">#748799</color>
+    <color name="pale_grey">#eff3f6</color>
+    <color name="black_70">#b3000000</color>
+    <color name="black_70_two">#b31c1c1c</color>
+    <color name="apple_green">#60b41c</color>
+    <color name="taupe">#bea884</color>
+
+    <color name="iv_change_bg_color">#66000000</color>
+
+
+    <color name="main_pink">#fcaeae</color>
+    <color name="main_pink_dark">#ff9696</color>
+    <color name="main_bg">#f0f6f6</color>
+
+    <color name="login_text">#4f4f4f</color>
+    <color name="msg_nickname">#fe5443</color>
+    <color name="msg_shadow">#c8000000</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="light_yellow">#f6eb93</color>
+    <color name="blue">#008cd6</color>
+    <!--透明色-->
+    <color name="color_transparent">#00000000</color>
+    <color name="color_light_transparent">#33000000</color>
+    <color name="color_half_transparent">#55000000</color>
+    <color name="color_full_transparent">#dd000000</color>
+    <color name="all_bg_color">#f6f6f6</color>
+    <color name="black_two">#333333</color>
+    <color name="dark">#5e5656</color>
+    <color name="greyish_brown_three">#3e3e3e</color>
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="light_blue">#8CC6F3</color>
+    <color name="nattierBlue">#f3f4f5</color>
+
+    <color name="dark_blue_29">#2996CC</color>
+    <color name="light_blue_34">#34BCFF</color>
+    <color name="dark_red_c6">#C64747</color>
+    <color name="light_red_f8">#F85959</color>
+    <color name="light_orange">#FFA944</color>
+
+
+</resources>

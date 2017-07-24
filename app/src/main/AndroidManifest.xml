@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.tck.erpmanager">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name=".ERPApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/AppThemeTwo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!--主界面-->
+        <activity
+            android:name=".ui.activity.HomeActivity"
+            android:screenOrientation="portrait"/>
+        <!--登录-->
+        <activity
+            android:name=".ui.activity.login_register.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <!--注册-->
+        <activity
+            android:name=".ui.activity.login_register.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <!--商品列表查询-->
+        <activity
+            android:name=".ui.activity.goods_manager.GetGoodsListActivity"
+            android:screenOrientation="portrait"/>
+        <!--添加商品-->
+        <activity
+            android:name=".ui.activity.goods_manager.AddGoodsActivity"
+            android:screenOrientation="portrait"/>
+        <!--商品详情界面-->
+        <activity
+            android:name=".ui.activity.goods_manager.GetGoodsDetailActivity"
+            android:screenOrientation="portrait"/>
+        <!--编辑商品-->
+        <activity
+            android:name=".ui.activity.goods_manager.UpdateGoodsActivity"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

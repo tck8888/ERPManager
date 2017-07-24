@@ -1,0 +1,54 @@
+package com.tck.commonlibrary.base;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.widget.Toast;
+
+import com.tck.commonlibrary.widget.LoadingDialog;
+
+/**
+ * Created by tck on 2017/5/26.
+ */
+
+public abstract class BaseActivity extends AppCompatActivity implements IBaseView {
+
+    private LoadingDialog mLoadingDialog;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(getLayoutId());
+        mLoadingDialog = new LoadingDialog(this);
+        initData();
+        initView();
+    }
+
+    protected abstract int getLayoutId();
+
+    protected abstract void initData();
+
+    protected abstract void initView();
+
+    public void showToast(String msg) {
+        if (!TextUtils.isEmpty(msg)) {
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void showLoading() {
+        mLoadingDialog.show();
+    }
+
+    @Override
+    public void dimissloading() {
+        mLoadingDialog.dismiss();
+    }
+
+    @Override
+    public void showError(String msg) {
+        showToast(msg);
+    }
+}
