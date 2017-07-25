@@ -1,6 +1,6 @@
 package com.tck.erpmanager.net.presenter;
 
-import com.avos.avoscloud.AVObject;
+
 import com.tck.commonlibrary.base.MyCallBack;
 import com.tck.erpmanager.net.contract.ProductContract;
 import com.tck.erpmanager.net.model.GetGoodsDetailModelImpl;
@@ -9,7 +9,7 @@ import com.tck.erpmanager.net.model.GetGoodsDetailModelImpl;
  * Created by tck on 2017/6/27.
  */
 
-public class GetGoodsDetailPresenterImpl implements ProductContract.GetGoodsDetailPresenter, MyCallBack<AVObject> {
+public class GetGoodsDetailPresenterImpl implements ProductContract.GetGoodsDetailPresenter, MyCallBack<String> {
 
     private ProductContract.GetGoodsDetailView mGetGoodsDetailView;
     private ProductContract.GetGoodsDetailModel mGetGoodsDetailModel;
@@ -26,7 +26,7 @@ public class GetGoodsDetailPresenterImpl implements ProductContract.GetGoodsDeta
     }
 
     @Override
-    public void showSuccess(AVObject avObject) {
+    public void showSuccess(String avObject) {
         mGetGoodsDetailView.dimissloading();
         mGetGoodsDetailView.showData(avObject);
     }

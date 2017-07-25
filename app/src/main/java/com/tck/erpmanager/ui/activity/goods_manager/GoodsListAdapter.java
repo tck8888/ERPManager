@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
+
 import com.tck.commonlibrary.base.BasicAdapter;
 import com.tck.erpmanager.R;
 
@@ -15,9 +15,9 @@ import java.util.List;
  * Created by tck on 2017/6/26.
  */
 
-public class GoodsListAdapter extends BasicAdapter<AVObject> {
+public class GoodsListAdapter extends BasicAdapter<String> {
 
-    public GoodsListAdapter(Context context, List<AVObject> dataList) {
+    public GoodsListAdapter(Context context, List<String> dataList) {
         super(context, dataList);
     }
 
@@ -29,15 +29,7 @@ public class GoodsListAdapter extends BasicAdapter<AVObject> {
         TextView mGoodsNumber = get(convertView, R.id.goods_number);
         TextView mGoodsBuyPrice = get(convertView, R.id.goods_buy_price);
         TextView mGoodsSalePrice = get(convertView, R.id.goods_sale_price);
-        AVObject avObject = mDataList.get(position);
-        String name = (String) avObject.get("name");
-        String number = (String) avObject.get("number");
-        String buyprice = (String) avObject.get("buyprice");
-        String saleprice = (String) avObject.get("saleprice");
-        mGoodsName.setText(name);
-        mGoodsNumber.setText(number);
-        mGoodsBuyPrice.setText("¥" + buyprice);
-        mGoodsSalePrice.setText("¥" + saleprice);
+
     }
 
     @Override

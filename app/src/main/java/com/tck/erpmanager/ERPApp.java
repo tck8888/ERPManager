@@ -3,7 +3,7 @@ package com.tck.erpmanager;
 import android.app.Application;
 import android.content.Context;
 
-import com.avos.avoscloud.AVOSCloud;
+
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
@@ -25,7 +25,7 @@ public class ERPApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        initLeanCloud();
+
         initOkGo();
 
         context=getApplicationContext();
@@ -56,8 +56,4 @@ public class ERPApp extends Application {
                 .setRetryCount(3);
     }
 
-    private void initLeanCloud() {
-        AVOSCloud.initialize(this, "AEs8kCPOvd81pcY2LkyhKlLq-gzGzoHsz", "erbxeRuQDidbj5WXwGnnuWhT");
-        AVOSCloud.setDebugLogEnabled(true);
-    }
 }

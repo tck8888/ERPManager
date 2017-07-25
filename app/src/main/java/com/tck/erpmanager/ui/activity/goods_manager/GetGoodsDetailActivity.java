@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
+
 import com.tck.commonlibrary.base.BaseActivity;
 import com.tck.erpmanager.R;
 import com.tck.erpmanager.net.contract.ProductContract;
@@ -70,17 +70,7 @@ public class GetGoodsDetailActivity extends BaseActivity implements View.OnClick
     }
 
     @Override
-    public void showData(AVObject avObject) {
-        String name = (String) avObject.get("name");
-        String number = (String) avObject.get("number");
-        String buyprice = (String) avObject.get("buyprice");
-        String saleprice = (String) avObject.get("saleprice");
-        String remark = (String) avObject.get("remark");
+    public void showData(String avObject) {
 
-        goodsName.setText(name);
-        goodsNumber.setText(number);
-        goodsBuyPrice.setText(buyprice);
-        goodsSalePrice.setText(saleprice);
-        mRemark.setText(remark);
     }
 }

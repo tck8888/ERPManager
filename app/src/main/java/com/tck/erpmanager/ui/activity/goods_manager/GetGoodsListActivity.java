@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.avos.avoscloud.AVObject;
+
 import com.tck.commonlibrary.base.BaseActivity;
 import com.tck.erpmanager.R;
 import com.tck.erpmanager.net.contract.ProductContract;
@@ -23,7 +23,7 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
 
     private ListView listView;
 
-    private List<AVObject> mList = new ArrayList<>();
+    private List<String> mList = new ArrayList<>();
     private GetGoodsListPresnterImpl mGetGoodsListPresnter;
     private GoodsListAdapter mGoodsListAdapter;
 
@@ -52,10 +52,9 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                AVObject avObject = mList.get(position);
-                String objectId = avObject.getObjectId();
+
                 Intent intent = new Intent(GetGoodsListActivity.this, GetGoodsDetailActivity.class);
-                intent.putExtra("objectId",objectId);
+                intent.putExtra("objectId",1);
                 startActivity(intent);
             }
         });
@@ -77,7 +76,7 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
     }
 
     @Override
-    public void showData(List<AVObject> list) {
+    public void showData(List<String> list) {
         mList.addAll(list);
         mGoodsListAdapter.notifyDataSetChanged();
     }

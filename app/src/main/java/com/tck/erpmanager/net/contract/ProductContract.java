@@ -1,6 +1,5 @@
 package com.tck.erpmanager.net.contract;
 
-import com.avos.avoscloud.AVObject;
 import com.tck.commonlibrary.base.IBaseView;
 import com.tck.commonlibrary.base.MyCallBack;
 import com.tck.erpmanager.bean.ProductBean;
@@ -30,11 +29,11 @@ public interface ProductContract {
     }
 
     interface GetGoodsListView extends IBaseView {
-        void showData(List<AVObject> list);
+        void showData(List<String> list);
     }
 
     interface GetGoodsListModel {
-        void getGoodsList(MyCallBack<List<AVObject>> myCallBack);
+        void getGoodsList(MyCallBack<List<String>> myCallBack);
     }
 
     interface GetGoodsDetailPresenter {
@@ -42,10 +41,10 @@ public interface ProductContract {
     }
 
     interface GetGoodsDetailView extends IBaseView {
-        void showData(AVObject avObject);
+        void showData(String avObject);
     }
 
     interface GetGoodsDetailModel {
-        void getGoodsDetail(String objectId,MyCallBack<AVObject> myCallBack);
+        void getGoodsDetail(String objectId,MyCallBack<String> myCallBack);
     }
 }
