@@ -20,7 +20,6 @@ public class AddGoodsActivity extends BaseActivity implements View.OnClickListen
     private EditText mGoodsName;
     private EditText mGoodsNumber;
     private EditText mGoodsBuyPrice;
-    private EditText mGoodsSalePrice;
     private EditText mRemark;
 
     private AddGoodsPresenterImpl mAddGoodsPresenter;
@@ -43,7 +42,7 @@ public class AddGoodsActivity extends BaseActivity implements View.OnClickListen
         mGoodsName = (EditText) findViewById(R.id.goods_name);
         mGoodsNumber = (EditText) findViewById(R.id.goods_number);
         mGoodsBuyPrice = (EditText) findViewById(R.id.goods_buy_price);
-        mGoodsSalePrice = (EditText) findViewById(R.id.goods_sale_price);
+
         mRemark = (EditText) findViewById(R.id.remark);
 
     }
@@ -67,7 +66,6 @@ public class AddGoodsActivity extends BaseActivity implements View.OnClickListen
         String goodsName = mGoodsName.getText().toString().trim();
         String goodsNumber = mGoodsNumber.getText().toString().trim();
         String goodsBuyPrice = mGoodsBuyPrice.getText().toString().trim();
-        String goodsSalePrice = mGoodsSalePrice.getText().toString().trim();
 
         if (TextUtils.isEmpty(goodsName)) {
             showToast("商品名称不能为空");
@@ -81,20 +79,16 @@ public class AddGoodsActivity extends BaseActivity implements View.OnClickListen
             showToast("商品采购价不能为空");
             return;
         }
-        if (TextUtils.isEmpty(goodsSalePrice)) {
-            showToast("商品零售价不能为空");
-            return;
-        }
 
-        mAddGoodsPresenter.addGoods(getProductBean(goodsName, goodsNumber, goodsBuyPrice, goodsSalePrice));
+
+        mAddGoodsPresenter.addGoods(getProductBean(goodsName, goodsNumber, goodsBuyPrice));
     }
 
-    private ProductBean getProductBean(String goodsName, String goodsNumber, String goodsBuyPrice, String goodsSalePrice) {
+    private ProductBean getProductBean(String goodsName, String goodsNumber, String goodsBuyPrice) {
         ProductBean productBean = new ProductBean();
         productBean.setProductName(goodsName);
         productBean.setProductNumber(goodsNumber);
         productBean.setProductBuyPrice(goodsBuyPrice);
-        productBean.setProductSalePrice(goodsSalePrice);
         productBean.setRemark(mRemark.getText().toString().trim());
         return productBean;
     }

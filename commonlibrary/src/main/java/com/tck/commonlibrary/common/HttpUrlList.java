@@ -8,7 +8,8 @@ public interface HttpUrlList {
 
 
     //String BASE_URL = "http://139.224.233.137:8080/ssm1_web-1.0-SNAPSHOT";
-    String BASE_URL = "http://192.168.0.107:8080";
+    // String BASE_URL = "http://192.168.0.107:8080";
+    String BASE_URL = "http://10.10.6.99:8080";
 
     String USER_MODULE = "/user";
     String PRODUCT_MODULE = "/product";

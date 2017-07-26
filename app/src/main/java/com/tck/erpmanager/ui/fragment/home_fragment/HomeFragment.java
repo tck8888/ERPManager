@@ -49,7 +49,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         mBanner.setDelayTime(3000);
         mBanner.start();
 
-
         view.findViewById(R.id.goods_manager).setOnClickListener(this);
         view.findViewById(R.id.buy_order).setOnClickListener(this);
         view.findViewById(R.id.sale_order).setOnClickListener(this);

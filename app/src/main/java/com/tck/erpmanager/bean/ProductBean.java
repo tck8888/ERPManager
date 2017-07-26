@@ -9,7 +9,7 @@ public class ProductBean {
     private String productName;
     private String productNumber;
     private String productBuyPrice;
-    private String productSalePrice;
+    private String imageUrl;
     private String remark;
 
     public String getImageUrl() {
@@ -19,8 +19,6 @@ public class ProductBean {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
-
-    private String imageUrl;
 
     public String getProductName() {
         return productName;
@@ -44,14 +42,6 @@ public class ProductBean {
 
     public void setProductBuyPrice(String productBuyPrice) {
         this.productBuyPrice = productBuyPrice;
-    }
-
-    public String getProductSalePrice() {
-        return productSalePrice;
-    }
-
-    public void setProductSalePrice(String productSalePrice) {
-        this.productSalePrice = productSalePrice;
     }
 
     public String getRemark() {
