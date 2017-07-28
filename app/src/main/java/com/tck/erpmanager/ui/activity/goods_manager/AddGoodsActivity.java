@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.tck.commonlibrary.base.BaseActivity;
+import com.tck.commonlibrary.base.BaseData;
 import com.tck.erpmanager.R;
 import com.tck.erpmanager.bean.ProductBean;
 import com.tck.erpmanager.net.contract.ProductContract;
@@ -94,8 +95,12 @@ public class AddGoodsActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    public void showData(String msg) {
-        showToast(msg);
-        finish();
+    public void showData(BaseData<String> msg) {
+        if (msg != null) {
+            showToast(msg.getMessage());
+            if (msg.getStatus() == 200) {
+                finish();
+            }
+        }
     }
 }

@@ -89,7 +89,6 @@ public class UpdateGoodsActivity extends BaseActivity implements View.OnClickLis
         productBean.setProductName(goodsName);
         productBean.setProductNumber(goodsNumber);
         productBean.setProductBuyPrice(goodsBuyPrice);
-        productBean.setProductSalePrice(goodsSalePrice);
         productBean.setRemark(mRemark.getText().toString().trim());
         return productBean;
     }

@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.tck.commonlibrary.base.BaseActivity;
 import com.tck.erpmanager.R;
+import com.tck.erpmanager.bean.ProductListBean;
 import com.tck.erpmanager.net.contract.ProductContract;
 import com.tck.erpmanager.net.presenter.GetGoodsListPresnterImpl;
 
@@ -23,7 +24,7 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
 
     private ListView listView;
 
-    private List<String> mList = new ArrayList<>();
+    private List<ProductListBean.DataBean> mList = new ArrayList<>();
     private GetGoodsListPresnterImpl mGetGoodsListPresnter;
     private GoodsListAdapter mGoodsListAdapter;
 
@@ -54,7 +55,7 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent = new Intent(GetGoodsListActivity.this, GetGoodsDetailActivity.class);
-                intent.putExtra("objectId",1);
+                intent.putExtra("objectId", 1);
                 startActivity(intent);
             }
         });
@@ -76,8 +77,16 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
     }
 
     @Override
-    public void showData(List<String> list) {
-        mList.addAll(list);
-        mGoodsListAdapter.notifyDataSetChanged();
+    public void showData(ProductListBean productListBean) {
+        if (productListBean != null) {
+            if (productListBean.getData() != null) {
+                if (productListBean.getData().size() > 0) {
+                    mList.addAll(productListBean.getData());
+                    mGoodsListAdapter.notifyDataSetChanged();
+                }
+            } else {
+                showToast(productListBean.getMessgae());
+            }
+        }
     }
 }

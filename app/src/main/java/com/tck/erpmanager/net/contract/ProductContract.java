@@ -1,10 +1,10 @@
 package com.tck.erpmanager.net.contract;
 
+import com.tck.commonlibrary.base.BaseData;
 import com.tck.commonlibrary.base.IBaseView;
 import com.tck.commonlibrary.base.MyCallBack;
 import com.tck.erpmanager.bean.ProductBean;
-
-import java.util.List;
+import com.tck.erpmanager.bean.ProductListBean;
 
 /**
  * Created by tck on 2017/6/26.
@@ -17,11 +17,11 @@ public interface ProductContract {
     }
 
     interface AddGoodsView extends IBaseView {
-        void showData(String msg);
+        void showData(BaseData<String> msg);
     }
 
     interface AddGoodsModel {
-        void addGoods(ProductBean productBean, MyCallBack<String> myCallBack);
+        void addGoods(ProductBean productBean, MyCallBack<BaseData<String>> myCallBack);
     }
 
     interface GetGoodsListPresnter {
@@ -29,11 +29,11 @@ public interface ProductContract {
     }
 
     interface GetGoodsListView extends IBaseView {
-        void showData(List<String> list);
+        void showData(ProductListBean productListBean);
     }
 
     interface GetGoodsListModel {
-        void getGoodsList(MyCallBack<List<String>> myCallBack);
+        void getGoodsList(MyCallBack<ProductListBean> myCallBack);
     }
 
     interface GetGoodsDetailPresenter {

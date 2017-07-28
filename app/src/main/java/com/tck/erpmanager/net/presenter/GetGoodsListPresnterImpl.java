@@ -2,16 +2,15 @@ package com.tck.erpmanager.net.presenter;
 
 
 import com.tck.commonlibrary.base.MyCallBack;
+import com.tck.erpmanager.bean.ProductListBean;
 import com.tck.erpmanager.net.contract.ProductContract;
 import com.tck.erpmanager.net.model.GetGoodsListModelImpl;
-
-import java.util.List;
 
 /**
  * Created by tck on 2017/6/26.
  */
 
-public class GetGoodsListPresnterImpl implements ProductContract.GetGoodsListPresnter,MyCallBack<List<String>> {
+public class GetGoodsListPresnterImpl implements ProductContract.GetGoodsListPresnter,MyCallBack<ProductListBean> {
     private ProductContract.GetGoodsListView mGetGoodsListView;
     private ProductContract.GetGoodsListModel mGetGoodsListModel;
 
@@ -27,7 +26,7 @@ public class GetGoodsListPresnterImpl implements ProductContract.GetGoodsListPre
     }
 
     @Override
-    public void showSuccess(List<String> list) {
+    public void showSuccess(ProductListBean list) {
         mGetGoodsListView.dimissloading();
         mGetGoodsListView.showData(list);
     }

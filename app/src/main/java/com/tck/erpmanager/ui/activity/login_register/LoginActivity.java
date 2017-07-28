@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.tck.commonlibrary.base.BaseActivity;
+import com.tck.commonlibrary.common.CommonConstant;
+import com.tck.commonlibrary.utils.AppSharePreferenceMgr;
 import com.tck.commonlibrary.utils.PhoneFormatCheckUtils;
 import com.tck.erpmanager.R;
 import com.tck.erpmanager.bean.MessageEvent;
@@ -121,6 +123,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         if (user != null) {
             if (user.getData() != null) {
                 showToast(user.getMessgae());
+                AppSharePreferenceMgr.put(this, CommonConstant.KEY_USER_ID, user.getData().getId());
                 Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
                 finish();
