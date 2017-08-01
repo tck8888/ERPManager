@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@color/white"
@@ -27,7 +28,7 @@
 
         <TextView
             android:id="@+id/icon_add"
-            android:layout_width="100dp"
+            android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:gravity="center"
@@ -93,47 +94,6 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="货号"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_16"/>
-
-        <ImageView
-            android:layout_width="7dp"
-            android:layout_height="14dp"
-            android:layout_gravity="center_vertical"
-            android:scaleType="centerInside"
-            android:src="@mipmap/icon_xing"/>
-
-        <EditText
-            android:id="@+id/goods_number"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_weight="1"
-            android:background="@null"
-            android:gravity="center_vertical"
-            android:hint="请输入货号"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_16"/>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_0_5dp"
-        android:background="@color/white_three"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_50dp"
-        android:layout_marginLeft="@dimen/dimen_15dp"
-        android:layout_marginRight="@dimen/dimen_15dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
             android:text="采购价"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_16"/>
@@ -164,6 +124,49 @@
         android:layout_height="@dimen/dimen_0_5dp"
         android:background="@color/white_three"/>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="图片"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_16"/>
+
+        <ImageView
+            android:layout_width="7dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="80dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/icon_xing"/>
+
+        <ImageView
+            android:id="@+id/good_image"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_marginLeft="95dp"
+            tools:src="@mipmap/ic_launcher"/>
+
+        <ImageView
+            android:id="@+id/select_image"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_gravity="end"
+            android:padding="@dimen/dimen_15dp"
+            android:src="@mipmap/arrow_into_big"/>
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0_5dp"
+        android:background="@color/white_three"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_50dp"
@@ -178,6 +181,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_0_5dp"
         android:background="@color/white_three"/>
+
     <EditText
         android:id="@+id/remark"
         android:layout_width="match_parent"

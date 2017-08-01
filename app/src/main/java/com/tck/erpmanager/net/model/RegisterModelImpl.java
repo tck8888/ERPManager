@@ -17,20 +17,6 @@ public class RegisterModelImpl implements LoginAndRegisterContract.RegisterModel
 
     @Override
     public void register(String username, String pwd, final MyCallBack<InfoBean> myCallBack) {
-      /*  AVUser user = new AVUser();//
-        user.setUsername(username);// 设置用户名
-        user.setPassword(pwd);// 设置密码
-
-        user.signUpInBackground(new SignUpCallback() {
-            @Override
-            public void done(AVException e) {
-                if (e == null) {
-                    myCallBack.showSuccess("注册成功");
-                } else {
-                    myCallBack.showError(e.getMessage());
-                }
-            }
-        });*/
 
         OkGo.<InfoBean>get(HttpUrlList.MemberModule.REGISTER_URL+username +"/" + pwd)
                 .execute(new AbsCallback<InfoBean>() {
@@ -42,6 +28,12 @@ public class RegisterModelImpl implements LoginAndRegisterContract.RegisterModel
                     @Override
                     public InfoBean convertResponse(okhttp3.Response response) throws Throwable {
                         return GsonUtil.GsonToBean(response.body().string(), InfoBean.class);
+                    }
+
+                    @Override
+                    public void onError(Response<InfoBean> response) {
+                        super.onError(response);
+                        myCallBack.showError(response.message());
                     }
                 });
     }

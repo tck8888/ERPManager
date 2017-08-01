@@ -24,13 +24,13 @@ public class AddGoodsModelImpl implements ProductContract.AddGoodsModel {
                 .tag(this)
                 .params("productName", productBean.getProductName())
                 .params("productPrice", productBean.getProductBuyPrice())
-                .params("productImage", "")
+                .params("productImage", productBean.getImageUrl())
                 .params("remark", productBean.getRemark())
                 .params("userId", (Integer) AppSharePreferenceMgr.get(ERPApp.getContext(), CommonConstant.KEY_USER_ID, -1))
                 .execute(new AbsCallback<BaseData<String>>() {
                     @Override
                     public BaseData<String> convertResponse(okhttp3.Response response) throws Throwable {
-                        return GsonUtil.GsonToBean(response.body().string(),BaseData.class);
+                        return GsonUtil.GsonToBean(response.body().string(), BaseData.class);
                     }
 
                     @Override
