@@ -8,9 +8,14 @@ import android.widget.ListView;
 
 import com.tck.commonlibrary.base.BaseActivity;
 import com.tck.erpmanager.R;
+import com.tck.erpmanager.bean.MessageEvent;
 import com.tck.erpmanager.bean.ProductListBean;
 import com.tck.erpmanager.net.contract.ProductContract;
 import com.tck.erpmanager.net.presenter.GetGoodsListPresnterImpl;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +42,24 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
     protected void initData() {
         mGetGoodsListPresnter = new GetGoodsListPresnterImpl(this);
         mGetGoodsListPresnter.getGoodsList();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void backInfo(MessageEvent<String> event) {
+        if (event != null) {
+            if (event.getTag().equals("AddGoodsActivity")) {
+                mGetGoodsListPresnter.getGoodsList();
+            }
+        }
     }
 
     @Override
@@ -81,12 +104,23 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
         if (productListBean != null) {
             if (productListBean.getData() != null) {
                 if (productListBean.getData().size() > 0) {
+                    if (mList.size() > 0) {
+                        mList.clear();
+                    }
                     mList.addAll(productListBean.getData());
                     mGoodsListAdapter.notifyDataSetChanged();
                 }
             } else {
                 showToast(productListBean.getMessgae());
             }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
         }
     }
 }

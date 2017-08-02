@@ -2,6 +2,7 @@ package com.tck.erpmanager.net.contract;
 
 import com.tck.commonlibrary.base.IBaseView;
 import com.tck.commonlibrary.base.MyCallBack;
+import com.tck.erpmanager.bean.InfoBean;
 
 import java.io.File;
 
@@ -18,10 +19,10 @@ public interface UpImageContract {
     }
 
     interface UpImageView extends IBaseView {
-        void showSuccess(String str);
+        void showSuccess(InfoBean str);
     }
 
     interface UpImageModel {
-        void upImage(File file, MyCallBack<String> myCallBack);
+        void upImage(File file, MyCallBack<InfoBean> myCallBack);
     }
 }

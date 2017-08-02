@@ -1,6 +1,7 @@
 package com.tck.erpmanager.net.presenter;
 
 import com.tck.commonlibrary.base.MyCallBack;
+import com.tck.erpmanager.bean.InfoBean;
 import com.tck.erpmanager.net.contract.UpImageContract;
 import com.tck.erpmanager.net.model.UpImageModelImpl;
 
@@ -12,7 +13,7 @@ import java.io.File;
  * Created by tck on 2017/8/1.
  */
 
-public class UpImagePresenterImpl implements UpImageContract.UpImagePresenter, MyCallBack<String> {
+public class UpImagePresenterImpl implements UpImageContract.UpImagePresenter, MyCallBack<InfoBean> {
 
     private UpImageContract.UpImageView mUpImageView;
     private UpImageContract.UpImageModel mUpImageModel;
@@ -29,7 +30,7 @@ public class UpImagePresenterImpl implements UpImageContract.UpImagePresenter, M
     }
 
     @Override
-    public void showSuccess(String s) {
+    public void showSuccess(InfoBean s) {
         mUpImageView.dimissloading();
         mUpImageView.showSuccess(s);
     }

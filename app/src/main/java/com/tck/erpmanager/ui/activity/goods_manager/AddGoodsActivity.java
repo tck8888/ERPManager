@@ -13,12 +13,17 @@ import android.widget.ImageView;
 
 import com.tck.commonlibrary.base.BaseActivity;
 import com.tck.commonlibrary.base.BaseData;
+import com.tck.commonlibrary.utils.ImageLoadUtils;
 import com.tck.erpmanager.R;
+import com.tck.erpmanager.bean.InfoBean;
+import com.tck.erpmanager.bean.MessageEvent;
 import com.tck.erpmanager.bean.ProductBean;
 import com.tck.erpmanager.net.contract.ProductContract;
 import com.tck.erpmanager.net.contract.UpImageContract;
 import com.tck.erpmanager.net.presenter.AddGoodsPresenterImpl;
 import com.tck.erpmanager.net.presenter.UpImagePresenterImpl;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -130,6 +135,7 @@ public class AddGoodsActivity extends BaseActivity implements View.OnClickListen
             showToast(msg.getMessage());
             if (msg.getStatus() == 200) {
                 finish();
+                EventBus.getDefault().post(new MessageEvent<String>("AddGoodsActivity","success"));
             }
         }
     }
@@ -186,7 +192,13 @@ public class AddGoodsActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    public void showSuccess(String str) {
-
+    public void showSuccess(InfoBean str) {
+        if (str != null) {
+            showToast(str.getMessage());
+            if (str.getStatus() == 200) {
+                url = str.getData();
+                ImageLoadUtils.getInstance().load(this, mGoodImage, url);
+            }
+        }
     }
 }
