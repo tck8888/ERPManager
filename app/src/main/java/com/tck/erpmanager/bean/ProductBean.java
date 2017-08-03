@@ -6,11 +6,20 @@ package com.tck.erpmanager.bean;
 
 public class ProductBean {
 
+    private int productId;
     private String productName;
     private String productNumber;
     private String productBuyPrice;
     private String imageUrl;
     private String remark;
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
 
     public String getImageUrl() {
         return imageUrl;

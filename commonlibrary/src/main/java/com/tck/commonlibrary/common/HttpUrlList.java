@@ -27,6 +27,7 @@ public interface HttpUrlList {
         String ADD_GOODS = BASE_URL + PRODUCT_MODULE + "/addProduct";
         String GET_GOODS_LIST = BASE_URL + PRODUCT_MODULE + "/findAll";
         String GET_GOODS_DETAIL = BASE_URL + PRODUCT_MODULE + "/findProductById";
+        String UPDATE_GOODS_DETAIL = BASE_URL + PRODUCT_MODULE + "/updateProduct";
 
     }
 

@@ -21,9 +21,9 @@ public class AddGoodsPresenterImpl implements ProductContract.AddGoodsPresenter,
     }
 
     @Override
-    public void addGoods(ProductBean productBean) {
+    public void addGoods(ProductBean productBean,String type) {
         mAddGoodsView.showLoading();
-        mAddGoodsModel.addGoods(productBean, this);
+        mAddGoodsModel.addGoods(productBean,type, this);
     }
 
     @Override

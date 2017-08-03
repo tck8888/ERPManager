@@ -59,6 +59,10 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
             if (event.getTag().equals("AddGoodsActivity")) {
                 mGetGoodsListPresnter.getGoodsList();
             }
+
+            if (event.getTag().equals("UpdateGoodsActivity")) {
+                mGetGoodsListPresnter.getGoodsList();
+            }
         }
     }
 
@@ -78,7 +82,7 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent = new Intent(GetGoodsListActivity.this, GetGoodsDetailActivity.class);
-                intent.putExtra("goodsId", 1);
+                intent.putExtra("goodsId", mList.get(position).getId());
                 startActivity(intent);
             }
         });

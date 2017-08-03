@@ -22,6 +22,11 @@ public class GetGoodsDetailActivity extends BaseActivity implements View.OnClick
     private TextView goodsBuyPrice;
     private ImageView goodImage;
     private TextView mRemark;
+    /**
+     * 商品id
+     */
+    private int mGoodsId;
+    private GetGoodsDetailPresenterImpl mGetGoodsDetailPresenter;
 
 
     @Override
@@ -32,10 +37,10 @@ public class GetGoodsDetailActivity extends BaseActivity implements View.OnClick
     @Override
     protected void initData() {
         try {
-            int goodsId = getIntent().getIntExtra("goodsId", -1);
+            mGoodsId = getIntent().getIntExtra("goodsId", -1);
 
-            GetGoodsDetailPresenterImpl getGoodsDetailPresenter = new GetGoodsDetailPresenterImpl(this);
-            getGoodsDetailPresenter.getGoodsDetail(goodsId);
+            mGetGoodsDetailPresenter = new GetGoodsDetailPresenterImpl(this);
+            mGetGoodsDetailPresenter.getGoodsDetail(mGoodsId);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,12 +58,16 @@ public class GetGoodsDetailActivity extends BaseActivity implements View.OnClick
 
     }
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.icon_back:
                 finish();
                 break;
+            /**
+             * 商品编辑
+             */
             case R.id.icon_add:
                 jumpUpdate();
                 break;
@@ -66,7 +75,10 @@ public class GetGoodsDetailActivity extends BaseActivity implements View.OnClick
     }
 
     private void jumpUpdate() {
-        startActivity(new Intent(this, UpdateGoodsActivity.class));
+        Intent intent = new Intent(this, UpdateGoodsActivity.class);
+        intent.putExtra("goodsId", mGoodsId);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -88,4 +100,5 @@ public class GetGoodsDetailActivity extends BaseActivity implements View.OnClick
         mRemark.setText(data.getRemark());
         ImageLoadUtils.getInstance().load(this, goodImage, data.getProductImage());
     }
+
 }

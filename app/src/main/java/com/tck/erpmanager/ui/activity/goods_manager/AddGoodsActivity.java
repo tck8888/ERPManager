@@ -117,7 +117,7 @@ public class AddGoodsActivity extends BaseActivity implements View.OnClickListen
             return;
         }
 
-        mAddGoodsPresenter.addGoods(getProductBean(goodsName, url, goodsBuyPrice));
+        mAddGoodsPresenter.addGoods(getProductBean(goodsName, url, goodsBuyPrice),"save");
     }
 
     private ProductBean getProductBean(String goodsName, String url, String goodsBuyPrice) {

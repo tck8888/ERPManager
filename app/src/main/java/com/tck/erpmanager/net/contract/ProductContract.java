@@ -14,7 +14,7 @@ import com.tck.erpmanager.bean.ProductListBean;
 public interface ProductContract {
 
     interface AddGoodsPresenter {
-        void addGoods(ProductBean productBean);
+        void addGoods(ProductBean productBean,String type);
     }
 
     interface AddGoodsView extends IBaseView {
@@ -22,7 +22,7 @@ public interface ProductContract {
     }
 
     interface AddGoodsModel {
-        void addGoods(ProductBean productBean, MyCallBack<BaseData<String>> myCallBack);
+        void addGoods(ProductBean productBean,String type, MyCallBack<BaseData<String>> myCallBack);
     }
 
     interface GetGoodsListPresnter {
