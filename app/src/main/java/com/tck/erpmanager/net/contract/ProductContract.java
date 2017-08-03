@@ -4,6 +4,7 @@ import com.tck.commonlibrary.base.BaseData;
 import com.tck.commonlibrary.base.IBaseView;
 import com.tck.commonlibrary.base.MyCallBack;
 import com.tck.erpmanager.bean.ProductBean;
+import com.tck.erpmanager.bean.ProductDetailBean;
 import com.tck.erpmanager.bean.ProductListBean;
 
 /**
@@ -37,14 +38,14 @@ public interface ProductContract {
     }
 
     interface GetGoodsDetailPresenter {
-        void getGoodsDetail(String objectId);
+        void getGoodsDetail(int goodsId);
     }
 
     interface GetGoodsDetailView extends IBaseView {
-        void showData(String avObject);
+        void showData(ProductDetailBean avObject);
     }
 
     interface GetGoodsDetailModel {
-        void getGoodsDetail(String objectId,MyCallBack<String> myCallBack);
+        void getGoodsDetail(int goodsId,MyCallBack<ProductDetailBean> myCallBack);
     }
 }

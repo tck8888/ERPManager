@@ -78,7 +78,7 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent = new Intent(GetGoodsListActivity.this, GetGoodsDetailActivity.class);
-                intent.putExtra("objectId", 1);
+                intent.putExtra("goodsId", 1);
                 startActivity(intent);
             }
         });

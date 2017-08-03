@@ -16,7 +16,7 @@ public interface HttpUrlList {
     String PURCHASEORDER_MODULE = "/purchaseOrder";
     String WAREHOUSE_MODULE = "/warehouse";
 
-    String UP_SINGLE_IMAGE_URL = BASE_URL +"/upload";
+    String UP_SINGLE_IMAGE_URL = BASE_URL + "/upload";
 
     interface MemberModule {
         String LOGIN_URL = BASE_URL + USER_MODULE + "/login/";
@@ -26,6 +26,8 @@ public interface HttpUrlList {
     interface ProductModule {
         String ADD_GOODS = BASE_URL + PRODUCT_MODULE + "/addProduct";
         String GET_GOODS_LIST = BASE_URL + PRODUCT_MODULE + "/findAll";
+        String GET_GOODS_DETAIL = BASE_URL + PRODUCT_MODULE + "/findProductById";
+
     }
 
     interface PurchaseOrderModule {

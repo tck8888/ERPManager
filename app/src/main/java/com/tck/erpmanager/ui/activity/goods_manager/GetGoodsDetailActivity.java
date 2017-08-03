@@ -2,11 +2,13 @@ package com.tck.erpmanager.ui.activity.goods_manager;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.tck.commonlibrary.base.BaseActivity;
+import com.tck.commonlibrary.utils.ImageLoadUtils;
 import com.tck.erpmanager.R;
+import com.tck.erpmanager.bean.ProductDetailBean;
 import com.tck.erpmanager.net.contract.ProductContract;
 import com.tck.erpmanager.net.presenter.GetGoodsDetailPresenterImpl;
 
@@ -17,9 +19,8 @@ import com.tck.erpmanager.net.presenter.GetGoodsDetailPresenterImpl;
 public class GetGoodsDetailActivity extends BaseActivity implements View.OnClickListener, ProductContract.GetGoodsDetailView {
 
     private TextView goodsName;
-    private TextView goodsNumber;
     private TextView goodsBuyPrice;
-    private TextView goodsSalePrice;
+    private ImageView goodImage;
     private TextView mRemark;
 
 
@@ -31,10 +32,10 @@ public class GetGoodsDetailActivity extends BaseActivity implements View.OnClick
     @Override
     protected void initData() {
         try {
-            String objectId = getIntent().getStringExtra("objectId");
-            System.out.println("=============="+objectId);
+            int goodsId = getIntent().getIntExtra("goodsId", -1);
+
             GetGoodsDetailPresenterImpl getGoodsDetailPresenter = new GetGoodsDetailPresenterImpl(this);
-            getGoodsDetailPresenter.getGoodsDetail(objectId);
+            getGoodsDetailPresenter.getGoodsDetail(goodsId);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,9 +47,8 @@ public class GetGoodsDetailActivity extends BaseActivity implements View.OnClick
         findViewById(R.id.icon_back).setOnClickListener(this);
         findViewById(R.id.icon_add).setOnClickListener(this);
         goodsName = (TextView) findViewById(R.id.goods_name);
-        goodsNumber = (TextView) findViewById(R.id.goods_number);
         goodsBuyPrice = (TextView) findViewById(R.id.goods_buy_price);
-        goodsSalePrice = (TextView) findViewById(R.id.goods_sale_price);
+        goodImage = (ImageView) findViewById(R.id.good_image);
         mRemark = (TextView) findViewById(R.id.remark);
 
     }
@@ -70,7 +70,22 @@ public class GetGoodsDetailActivity extends BaseActivity implements View.OnClick
     }
 
     @Override
-    public void showData(String avObject) {
+    public void showData(ProductDetailBean productDetailBean) {
 
+        if (productDetailBean != null) {
+            showToast(productDetailBean.getMessgae());
+            if (productDetailBean.getStatus() == 200) {
+                if (productDetailBean.getData() != null) {
+                    setViewData(productDetailBean.getData());
+                }
+            }
+        }
+    }
+
+    private void setViewData(ProductDetailBean.DataBean data) {
+        goodsName.setText(data.getProductName());
+        goodsBuyPrice.setText("" + data.getProductPrice());
+        mRemark.setText(data.getRemark());
+        ImageLoadUtils.getInstance().load(this, goodImage, data.getProductImage());
     }
 }

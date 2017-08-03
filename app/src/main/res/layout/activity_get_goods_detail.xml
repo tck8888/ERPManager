@@ -28,7 +28,7 @@
 
         <TextView
             android:id="@+id/icon_add"
-            android:layout_width="100dp"
+            android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:gravity="center"
@@ -85,37 +85,6 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="货号"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_16"/>
-
-        <TextView
-            android:id="@+id/goods_number"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_16"
-            tools:text="货号"/>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_0_5dp"
-        android:background="@color/white_three"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_50dp"
-        android:layout_marginLeft="@dimen/dimen_15dp"
-        android:layout_marginRight="@dimen/dimen_15dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
             android:text="采购价"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_16"/>
@@ -136,37 +105,39 @@
         android:layout_height="@dimen/dimen_0_5dp"
         android:background="@color/white_three"/>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_50dp"
         android:layout_marginLeft="@dimen/dimen_15dp"
-        android:layout_marginRight="@dimen/dimen_15dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="零售价"
+            android:text="图片"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_16"/>
 
-        <TextView
-            android:id="@+id/goods_sale_price"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_16"
-            tools:text="零售价"/>
-    </LinearLayout>
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/good_image"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_marginLeft="80dp"
+            tools:src="@mipmap/ic_launcher"/>
+    </FrameLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_0_5dp"
         android:background="@color/white_three"/>
 
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0_5dp"
+        android:background="@color/white_three"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_50dp"
