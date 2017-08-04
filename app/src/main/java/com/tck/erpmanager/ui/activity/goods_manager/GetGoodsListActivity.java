@@ -12,6 +12,7 @@ import com.tck.erpmanager.bean.MessageEvent;
 import com.tck.erpmanager.bean.ProductListBean;
 import com.tck.erpmanager.net.contract.ProductContract;
 import com.tck.erpmanager.net.presenter.GetGoodsListPresnterImpl;
+import com.tck.erpmanager.ui.activity.goods_manager.adapter.GoodsListAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

@@ -97,6 +97,16 @@
         <activity
             android:name=".ui.activity.goods_manager.UpdateGoodsActivity"
             android:screenOrientation="portrait"/>
+
+        <!--仓库列表界面-->
+        <activity
+            android:name=".ui.activity.warehouse_manager.GetWarehouseListActivity"
+            android:screenOrientation="portrait"/>
+
+        <!--新增仓库界面-->
+        <activity
+            android:name=".ui.activity.warehouse_manager.AddWarehouseActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

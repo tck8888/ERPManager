@@ -1,4 +1,4 @@
-package com.tck.erpmanager.ui.activity.goods_manager;
+package com.tck.erpmanager.ui.activity.goods_manager.adapter;
 
 import android.content.Context;
 import android.view.View;

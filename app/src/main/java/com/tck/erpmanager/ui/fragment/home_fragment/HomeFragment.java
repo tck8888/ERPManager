@@ -7,6 +7,7 @@ import com.tck.commonlibrary.base.BaseFragment;
 import com.tck.commonlibrary.utils.GlideImageLoader;
 import com.tck.erpmanager.R;
 import com.tck.erpmanager.ui.activity.goods_manager.GetGoodsListActivity;
+import com.tck.erpmanager.ui.activity.warehouse_manager.GetWarehouseListActivity;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -95,6 +96,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
              * 库存查询
              */
             case R.id.stock_query:
+                startActivity(new Intent(getContext(), GetWarehouseListActivity.class));
                 break;
         }
     }
