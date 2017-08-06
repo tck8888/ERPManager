@@ -8,8 +8,8 @@ public interface HttpUrlList {
 
 
     //String BASE_URL = "http://139.224.233.137:8080/ssm1_web-1.0-SNAPSHOT";
-    // String BASE_URL = "http://192.168.0.107:8080";
-    String BASE_URL = "http://10.10.6.172:8080";
+   String BASE_URL = "http://192.168.137.1:8080";
+    //String BASE_URL = "http://10.10.6.172:8080";
 
     String USER_MODULE = "/user";
     String PRODUCT_MODULE = "/product";
@@ -36,8 +36,9 @@ public interface HttpUrlList {
     }
 
     interface WarehouseModule {
-        String GET_WAREHOUSE_LIST_URL = BASE_URL + WAREHOUSE_MODULE + "/addWarehouse";
+        String GET_WAREHOUSE_LIST_URL = BASE_URL + WAREHOUSE_MODULE + "/getWarehouseList";
         String GET_WAREHOUSE_DETAIL_URL = BASE_URL + WAREHOUSE_MODULE + "/findWarehouseByWarehouseId";
+        String ADD_WAREHOUSE_URL = BASE_URL + WAREHOUSE_MODULE + "/addWarehouse";
 
     }
 }

@@ -9,9 +9,6 @@ import com.tck.erpmanager.R;
 import com.tck.erpmanager.bean.MyCustomTabEntity;
 import com.tck.erpmanager.ui.fragment.home_fragment.BasicFragment;
 import com.tck.erpmanager.ui.fragment.home_fragment.HomeFragment;
-import com.tck.erpmanager.ui.fragment.home_fragment.SaleFragment;
-import com.tck.erpmanager.ui.fragment.home_fragment.StatisticsFragment;
-import com.tck.erpmanager.ui.fragment.home_fragment.WarehouseFragment;
 
 import java.util.ArrayList;
 
@@ -37,9 +34,6 @@ public class HomeActivity extends BaseActivity {
         String[] titles = getResources().getStringArray(R.array.home_tag);
         fragments = new ArrayList<>();
         fragments.add(new HomeFragment());
-        fragments.add(new WarehouseFragment());
-        fragments.add(new SaleFragment());
-        fragments.add(new StatisticsFragment());
         fragments.add(new BasicFragment());
         tabEntitys = new ArrayList<>();
 
@@ -49,15 +43,6 @@ public class HomeActivity extends BaseActivity {
                     tabEntitys.add(new MyCustomTabEntity(titles[i], R.mipmap.main_nav_click_home_2_x, R.mipmap.icon_home_page));
                     break;
                 case 1:
-                    tabEntitys.add(new MyCustomTabEntity(titles[i], R.mipmap.main_nav_click_stock_2_x, R.mipmap.icon_stock));
-                    break;
-                case 2:
-                    tabEntitys.add(new MyCustomTabEntity(titles[i], R.mipmap.main_nav_click_sale_2_x, R.mipmap.icon_sale));
-                    break;
-                case 3:
-                    tabEntitys.add(new MyCustomTabEntity(titles[i], R.mipmap.main_nav_click_count_2_x, R.mipmap.icon_statistics));
-                    break;
-                case 4:
                     tabEntitys.add(new MyCustomTabEntity(titles[i], R.mipmap.main_nav_click_basics_2_x, R.mipmap.icon_basics));
                     break;
             }

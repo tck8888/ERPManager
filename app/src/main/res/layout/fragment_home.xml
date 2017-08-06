@@ -11,9 +11,9 @@
         android:layout_height="@dimen/dimen_200dp"/>
 
     <LinearLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="95dp"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -108,11 +108,11 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:background="@color/white"
             android:id="@+id/stock_query"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/white"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -126,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9.5dp"
-                android:text="库存查询"
+                android:text="库存管理"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_16"/>
         </LinearLayout>

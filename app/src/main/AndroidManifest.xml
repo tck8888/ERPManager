@@ -107,6 +107,10 @@
         <activity
             android:name=".ui.activity.warehouse_manager.AddWarehouseActivity"
             android:screenOrientation="portrait"/>
+        <!--仓库详情界面-->
+        <activity
+            android:name=".ui.activity.warehouse_manager.GetWarehouseDetailActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

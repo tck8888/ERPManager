@@ -121,17 +121,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void showData(User user) {
         if (user != null) {
-            if (user.getData() != null) {
-                showToast(user.getMessgae());
-                AppSharePreferenceMgr.put(this, CommonConstant.KEY_USER_ID, user.getData().getId());
-                Intent intent = new Intent(this, HomeActivity.class);
-                startActivity(intent);
-                finish();
-            } else {
-                showToast(user.getMessgae());
+            showToast(user.getMessgae());
+            if (user.getStatus() == 200) {
+                if (user.getData() != null) {
+                    AppSharePreferenceMgr.put(this, CommonConstant.KEY_USER_ID, user.getData().getId());
+                    Intent intent = new Intent(this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }
-
-
     }
 }
