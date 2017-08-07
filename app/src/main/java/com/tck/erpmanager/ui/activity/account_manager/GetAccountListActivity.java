@@ -59,6 +59,7 @@ public class GetAccountListActivity extends BaseActivity implements View.OnClick
         });
     }
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
