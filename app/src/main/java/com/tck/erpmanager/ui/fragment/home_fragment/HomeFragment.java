@@ -6,7 +6,9 @@ import android.view.View;
 import com.tck.commonlibrary.base.BaseFragment;
 import com.tck.commonlibrary.utils.GlideImageLoader;
 import com.tck.erpmanager.R;
+import com.tck.erpmanager.ui.activity.account_manager.GetAccountListActivity;
 import com.tck.erpmanager.ui.activity.goods_manager.GetGoodsListActivity;
+import com.tck.erpmanager.ui.activity.purchase_order.GetPurchaseOrderListActivity;
 import com.tck.erpmanager.ui.activity.warehouse_manager.GetWarehouseListActivity;
 import com.youth.banner.Banner;
 
@@ -54,6 +56,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.buy_order).setOnClickListener(this);
         view.findViewById(R.id.sale_order).setOnClickListener(this);
         view.findViewById(R.id.stock_query).setOnClickListener(this);
+        view.findViewById(R.id.account_manager).setOnClickListener(this);
 
 
     }
@@ -86,6 +89,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
              * 采购单
              */
             case R.id.buy_order:
+                startActivity(new Intent(getContext(), GetPurchaseOrderListActivity.class));
                 break;
             /**
              * 销售单
@@ -97,6 +101,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
              */
             case R.id.stock_query:
                 startActivity(new Intent(getContext(), GetWarehouseListActivity.class));
+                break;
+            /**
+             * 账户管理
+             */
+            case R.id.account_manager:
+                startActivity(new Intent(getContext(), GetAccountListActivity.class));
                 break;
         }
     }

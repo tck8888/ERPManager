@@ -75,6 +75,7 @@
             android:screenOrientation="portrait"/>
         <!--登录-->
         <activity
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:name=".ui.activity.login_register.LoginActivity"
             android:screenOrientation="portrait"/>
         <!--注册-->
@@ -110,6 +111,30 @@
         <!--仓库详情界面-->
         <activity
             android:name=".ui.activity.warehouse_manager.GetWarehouseDetailActivity"
+            android:screenOrientation="portrait"/>
+        <!--新增采购单-->
+        <activity
+            android:name=".ui.activity.purchase_order.AddPurchaseOrderActivity"
+            android:screenOrientation="portrait"/>
+        <!--采购单列表界面-->
+        <activity
+            android:name=".ui.activity.purchase_order.GetPurchaseOrderListActivity"
+            android:screenOrientation="portrait"/>
+        <!--采购单相情界面-->
+        <activity
+            android:name=".ui.activity.purchase_order.GetPurchaseOrderDetailActivity"
+            android:screenOrientation="portrait"/>
+        <!--账户列表界面-->
+        <activity
+            android:name=".ui.activity.account_manager.GetAccountListActivity"
+            android:screenOrientation="portrait"/>
+        <!--账户详情-->
+        <activity
+            android:name=".ui.activity.account_manager.GetAccountDetailActivity"
+            android:screenOrientation="portrait"/>
+        <!--新增账户-->
+        <activity
+            android:name=".ui.activity.account_manager.AddAccounActivity"
             android:screenOrientation="portrait"/>
     </application>
 

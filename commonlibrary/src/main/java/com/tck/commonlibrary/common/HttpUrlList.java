@@ -15,6 +15,8 @@ public interface HttpUrlList {
     String PRODUCT_MODULE = "/product";
     String PURCHASEORDER_MODULE = "/purchaseOrder";
     String WAREHOUSE_MODULE = "/warehouse";
+    String ACCOUNT_MODULE = "/account";
+
 
     String UP_SINGLE_IMAGE_URL = BASE_URL + "/upload";
 
@@ -32,6 +34,7 @@ public interface HttpUrlList {
     }
 
     interface PurchaseOrderModule {
+        String ADD_PURCHASE_ORDER_URL = BASE_URL + PURCHASEORDER_MODULE + "/addOrder";
 
     }
 
@@ -39,6 +42,13 @@ public interface HttpUrlList {
         String GET_WAREHOUSE_LIST_URL = BASE_URL + WAREHOUSE_MODULE + "/getWarehouseList";
         String GET_WAREHOUSE_DETAIL_URL = BASE_URL + WAREHOUSE_MODULE + "/findWarehouseByWarehouseId";
         String ADD_WAREHOUSE_URL = BASE_URL + WAREHOUSE_MODULE + "/addWarehouse";
+
+    }
+
+    interface AccountModule {
+        String GET_ACCOUNT_LIST_URL = BASE_URL + ACCOUNT_MODULE + "/getAccountList";
+        String GET_ACCOUNT_DETAIL_URL = BASE_URL + ACCOUNT_MODULE + "/findWarehouseByWarehouseId";
+        String ADD_ACCOUNT_URL = BASE_URL + ACCOUNT_MODULE + "/addAccount";
 
     }
 }
