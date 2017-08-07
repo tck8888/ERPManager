@@ -4,11 +4,8 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.AbsCallback;
 import com.lzy.okgo.model.Response;
 import com.tck.commonlibrary.base.MyCallBack;
-import com.tck.commonlibrary.common.CommonConstant;
 import com.tck.commonlibrary.common.HttpUrlList;
-import com.tck.commonlibrary.utils.AppSharePreferenceMgr;
 import com.tck.commonlibrary.utils.GsonUtil;
-import com.tck.erpmanager.ERPApp;
 import com.tck.erpmanager.bean.WarehouseListBean;
 import com.tck.erpmanager.net.contract.WarehouseContract;
 
@@ -20,9 +17,9 @@ public class GetWarehouseListModelImpl implements WarehouseContract.GetWarehouse
 
 
     @Override
-    public void getWarehouseList(final MyCallBack<WarehouseListBean> myCallBack) {
+    public void getWarehouseList(int userId, final MyCallBack<WarehouseListBean> myCallBack) {
         OkGo.<WarehouseListBean>get(HttpUrlList.WarehouseModule.GET_WAREHOUSE_LIST_URL)
-                .params("userId", (Integer) AppSharePreferenceMgr.get(ERPApp.getContext(), CommonConstant.KEY_USER_ID, -1))
+                .params("userId", userId)
                 .execute(new AbsCallback<WarehouseListBean>() {
                     @Override
                     public void onSuccess(Response<WarehouseListBean> response) {

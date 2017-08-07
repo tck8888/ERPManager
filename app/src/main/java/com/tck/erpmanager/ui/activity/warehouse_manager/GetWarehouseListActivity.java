@@ -6,6 +6,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.tck.commonlibrary.base.BaseActivity;
+import com.tck.commonlibrary.common.CommonConstant;
+import com.tck.commonlibrary.utils.AppSharePreferenceMgr;
 import com.tck.erpmanager.R;
 import com.tck.erpmanager.bean.MessageEvent;
 import com.tck.erpmanager.bean.WarehouseListBean;
@@ -35,6 +37,7 @@ public class GetWarehouseListActivity extends BaseActivity implements View.OnCli
 
     private List<WarehouseListBean.DataBean> mWarehouseList = new ArrayList<>();
     private GetWarehouseListAdapter mAdapter;
+    private Integer mUserId;
 
 
     @Override
@@ -45,7 +48,12 @@ public class GetWarehouseListActivity extends BaseActivity implements View.OnCli
     @Override
     protected void initData() {
         mGetWarehouseListPresenter = new GetWarehouseListPresenterImpl(this);
-        mGetWarehouseListPresenter.getWarehouseList();
+        try {
+            mUserId = (Integer) AppSharePreferenceMgr.get(this, CommonConstant.KEY_USER_ID, -1);
+            mGetWarehouseListPresenter.getWarehouseList(mUserId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -82,7 +90,7 @@ public class GetWarehouseListActivity extends BaseActivity implements View.OnCli
     public void backInfo(MessageEvent<String> event) {
         if (event != null) {
             if (event.getTag().equals("AddWarehouseActivity")) {
-                mGetWarehouseListPresenter.getWarehouseList();
+                mGetWarehouseListPresenter.getWarehouseList(mUserId);
             }
         }
     }

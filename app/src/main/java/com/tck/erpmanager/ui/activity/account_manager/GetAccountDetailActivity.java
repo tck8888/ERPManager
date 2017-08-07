@@ -38,7 +38,6 @@ public class GetAccountDetailActivity extends BaseActivity implements View.OnCli
     @Override
     protected void initView() {
 
-
         findViewById(R.id.icon_back).setOnClickListener(this);
 
         accountName = (TextView) findViewById(R.id.account_name);

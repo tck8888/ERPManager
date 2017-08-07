@@ -20,9 +20,9 @@ public class GetWarehouseListPresenterImpl implements WarehouseContract.GetWareh
     }
 
     @Override
-    public void getWarehouseList() {
+    public void getWarehouseList(int userId) {
         mGetWarehouseListView.showLoading();
-        mGetWarehouseListModel.getWarehouseList(this);
+        mGetWarehouseListModel.getWarehouseList(userId,this);
     }
 
     @Override

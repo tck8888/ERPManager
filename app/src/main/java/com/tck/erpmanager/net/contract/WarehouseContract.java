@@ -14,7 +14,7 @@ import com.tck.erpmanager.bean.WarehouseListBean;
 public interface WarehouseContract {
 
     interface GetWarehouseListPresenter {
-        void getWarehouseList();
+        void getWarehouseList(int userId);
     }
 
     interface GetWarehouseListView extends IBaseView {
@@ -22,7 +22,7 @@ public interface WarehouseContract {
     }
 
     interface GetWarehouseListModel {
-        void getWarehouseList(MyCallBack<WarehouseListBean> myCallBack);
+        void getWarehouseList(int userId,MyCallBack<WarehouseListBean> myCallBack);
     }
 
     interface AddWarehousePresenter {

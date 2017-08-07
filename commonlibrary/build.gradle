@@ -41,4 +41,5 @@ dependencies {
     compile 'com.lzy.net:okgo:3.0.2'
     compile 'com.google.code.gson:gson:2.8.1'
 
+    compile 'com.contrarywind:Android-PickerView:3.2.5'
 }

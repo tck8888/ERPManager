@@ -1,9 +1,11 @@
 package com.tck.commonlibrary.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.tck.commonlibrary.widget.LoadingDialog;
@@ -51,4 +53,16 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     public void showError(String msg) {
         showToast(msg);
     }
+
+
+    /**
+     * 隐藏软键盘
+     */
+    protected void hideSoftKeyboard() {
+        if (!this.isDestroyed()) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
+        }
+    }
+
 }
