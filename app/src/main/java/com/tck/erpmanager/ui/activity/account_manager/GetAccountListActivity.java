@@ -54,6 +54,7 @@ public class GetAccountListActivity extends BaseActivity implements View.OnClick
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 AccountListBean.DataBean dataBean = mDataBeanList.get(position);
                 Intent intent = new Intent(GetAccountListActivity.this, GetAccountDetailActivity.class);
+                intent.putExtra("accountId", dataBean.getId());
                 startActivity(intent);
             }
         });

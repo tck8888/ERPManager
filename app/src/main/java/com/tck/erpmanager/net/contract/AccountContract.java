@@ -26,7 +26,7 @@ public interface AccountContract {
     }
 
     interface GetAccountDetailPresenter {
-        void getAccountList(int accountId);
+        void getAccountDetail(int accountId);
     }
 
     interface GetAccountDetailView extends IBaseView {
@@ -34,7 +34,7 @@ public interface AccountContract {
     }
 
     interface GetAccountDetailModel {
-        void getAccountList(int accountId, MyCallBack<AccountDetailBean> myCallBack);
+        void getAccountDetail(int accountId, MyCallBack<AccountDetailBean> myCallBack);
     }
 
     interface AddAccountPresenter {

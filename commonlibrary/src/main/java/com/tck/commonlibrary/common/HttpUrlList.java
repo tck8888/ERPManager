@@ -8,7 +8,7 @@ public interface HttpUrlList {
 
 
     //String BASE_URL = "http://139.224.233.137:8080/ssm1_web-1.0-SNAPSHOT";
-   String BASE_URL = "http://192.168.137.1:8080";
+    String BASE_URL = "http://192.168.0.109:8080";
     //String BASE_URL = "http://10.10.6.172:8080";
 
     String USER_MODULE = "/user";
@@ -47,7 +47,7 @@ public interface HttpUrlList {
 
     interface AccountModule {
         String GET_ACCOUNT_LIST_URL = BASE_URL + ACCOUNT_MODULE + "/getAccountList";
-        String GET_ACCOUNT_DETAIL_URL = BASE_URL + ACCOUNT_MODULE + "/findWarehouseByWarehouseId";
+        String GET_ACCOUNT_DETAIL_URL = BASE_URL + ACCOUNT_MODULE + "/findAccountById";
         String ADD_ACCOUNT_URL = BASE_URL + ACCOUNT_MODULE + "/addAccount";
 
     }
