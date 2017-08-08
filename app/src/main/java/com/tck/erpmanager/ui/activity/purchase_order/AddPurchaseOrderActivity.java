@@ -1,5 +1,6 @@
 package com.tck.erpmanager.ui.activity.purchase_order;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,11 +13,16 @@ import com.tck.commonlibrary.utils.AppSharePreferenceMgr;
 import com.tck.commonlibrary.widget.CustomListView;
 import com.tck.erpmanager.R;
 import com.tck.erpmanager.bean.AccountListBean;
+import com.tck.erpmanager.bean.MessageEvent;
 import com.tck.erpmanager.bean.WarehouseListBean;
 import com.tck.erpmanager.net.contract.AccountContract;
 import com.tck.erpmanager.net.contract.WarehouseContract;
 import com.tck.erpmanager.net.presenter.GetAccountListPresenterImpl;
 import com.tck.erpmanager.net.presenter.GetWarehouseListPresenterImpl;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -73,7 +79,6 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
     @Override
     protected void initView() {
 
-
         selectWarehouse = (TextView) findViewById(R.id.select_warehouse);
         selectAccount = (TextView) findViewById(R.id.select_account);
         listView = (CustomListView) findViewById(R.id.list_view);
@@ -88,6 +93,14 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
         findViewById(R.id.select_product).setOnClickListener(this);
         findViewById(R.id.purchase).setOnClickListener(this);
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
     }
 
     @Override
@@ -113,7 +126,7 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
              */
             case R.id.select_account:
                 hideSoftKeyboard();
-                if (warhouseDataList.size() > 0) {
+                if (accountDataList.size() > 0) {
                     addAccount();
                 } else {
                     showToast("暂无账户，前往添加账户");
@@ -148,6 +161,10 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
         }
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void backInfo(MessageEvent event) {
+
+    }
 
     /**
      * 添加仓库
@@ -199,7 +216,8 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
      * 添加商品
      */
     private void addProduct() {
-
+        Intent intent = new Intent(this, AddPurchaseOrderSelectGoodsActivity.class);
+        startActivity(intent);
     }
 
     /**
@@ -252,6 +270,15 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
                     accountDataList.addAll(accountListBean.getData());
                 }
             }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
         }
     }
 }

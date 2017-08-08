@@ -62,6 +62,25 @@ public class ProductListBean {
         private String remark;
         private int userId;
 
+        private boolean isSelected = false;
+        private int count = 1;
+
+        public int getCount() {
+            return count;
+        }
+
+        public void setCount(int count) {
+            this.count = count;
+        }
+
+        public boolean isSelected() {
+            return isSelected;
+        }
+
+        public void setSelected(boolean selected) {
+            isSelected = selected;
+        }
+
         public int getId() {
             return id;
         }
