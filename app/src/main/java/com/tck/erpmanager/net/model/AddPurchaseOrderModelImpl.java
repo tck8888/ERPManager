@@ -19,6 +19,7 @@ public class AddPurchaseOrderModelImpl implements PurchaseOrderContract.AddPurch
     public void addPurchaseOrder(PurchaseOrderBean purchaseOrderBean, final MyCallBack<BaseData<String>> myCallBack) {
         OkGo.<BaseData<String>>get(HttpUrlList.PurchaseOrderModule.ADD_PURCHASE_ORDER_URL)
                 .params("userId", purchaseOrderBean.getUserId())
+
                 .execute(new AbsCallback<BaseData<String>>() {
                     @Override
                     public void onSuccess(Response<BaseData<String>> response) {

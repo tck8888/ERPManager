@@ -25,7 +25,7 @@ public class ProductItemAdapter extends BasicAdapter<ProductListBean.DataBean> {
     }
 
     @Override
-    protected void onInitView(View convertView, int position) {
+    protected void onInitView(View convertView, final int position) {
 
         TextView productName = get(convertView, R.id.product_name);
         TextView productPrice = get(convertView, R.id.product_price);
@@ -39,10 +39,53 @@ public class ProductItemAdapter extends BasicAdapter<ProductListBean.DataBean> {
         productPrice.setText(dataBean.getProductPrice() + "");
         productCount.setText(dataBean.getCount() + "");
 
+        /**
+         * 减少
+         */
+        decreaseProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mDecreaseProduct != null) {
+                    mDecreaseProduct.decrease(position);
+                }
+            }
+        });
+
+        /**
+         * 增加
+         */
+        increaseProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mIncreaseProduct != null) {
+                    mIncreaseProduct.increase(position);
+                }
+            }
+        });
+
     }
 
     @Override
     protected int getContentView() {
         return R.layout.purchase_product_item;
+    }
+
+    public interface DecreaseProduct {
+        void decrease(int position);
+    }
+
+    public interface IncreaseProduct {
+        void increase(int position);
+    }
+
+    private DecreaseProduct mDecreaseProduct;
+    private IncreaseProduct mIncreaseProduct;
+
+    public void setDecreaseProduct(DecreaseProduct decreaseProduct) {
+        mDecreaseProduct = decreaseProduct;
+    }
+
+    public void setIncreaseProduct(IncreaseProduct increaseProduct) {
+        mIncreaseProduct = increaseProduct;
     }
 }

@@ -173,7 +173,10 @@
                 android:layout_height="wrap_content"
                 android:divider="@color/white_two"
                 android:dividerHeight="@dimen/dimen_0_5dp"/>
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0_5dp"
+                android:background="@color/white_three"/>
             <ImageView
                 android:id="@+id/select_product"
                 android:layout_width="match_parent"

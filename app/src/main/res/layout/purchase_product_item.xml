@@ -8,9 +8,10 @@
 
     <TextView
         android:id="@+id/product_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
         android:ellipsize="end"
+        android:gravity="center_vertical"
         android:maxLength="10"
         android:maxLines="1"
         android:textColor="@color/black"
@@ -20,7 +21,7 @@
     <TextView
         android:id="@+id/product_price"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dimen_20dp"
+        android:layout_height="@dimen/dimen_30dp"
         android:layout_marginLeft="@dimen/dimen_15dp"
         android:gravity="center"
         android:text="9999"
@@ -36,23 +37,26 @@
 
     <ImageView
         android:id="@+id/decrease_product"
-        android:layout_width="24dp"
-        android:layout_height="@dimen/dimen_20dp"
+        android:layout_width="36dp"
+        android:layout_height="@dimen/dimen_30dp"
         android:layout_marginLeft="@dimen/dimen_15dp"
+        android:scaleType="fitXY"
         android:src="@mipmap/btn_minus_black"/>
 
     <TextView
         android:id="@+id/product_count"
-        android:layout_width="@dimen/dimen_32dp"
-        android:layout_height="@dimen/dimen_20dp"
+        android:layout_width="@dimen/dimen_36dp"
+        android:layout_height="@dimen/dimen_30dp"
         android:background="@drawable/shape_border_warm_grey_solid_white"
+        android:gravity="center"
         android:text="9999"
         android:textColor="@color/black"
         android:textSize="16sp"/>
 
     <ImageView
         android:id="@+id/increase_product"
-        android:layout_width="24dp"
-        android:layout_height="@dimen/dimen_20dp"
+        android:layout_width="36dp"
+        android:layout_height="@dimen/dimen_30dp"
+        android:scaleType="fitXY"
         android:src="@mipmap/btn_plus_black"/>
 </LinearLayout>
