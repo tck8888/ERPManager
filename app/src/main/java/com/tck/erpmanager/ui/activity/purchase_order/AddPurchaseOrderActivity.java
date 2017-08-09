@@ -14,11 +14,13 @@ import com.tck.commonlibrary.widget.CustomListView;
 import com.tck.erpmanager.R;
 import com.tck.erpmanager.bean.AccountListBean;
 import com.tck.erpmanager.bean.MessageEvent;
+import com.tck.erpmanager.bean.ProductListBean;
 import com.tck.erpmanager.bean.WarehouseListBean;
 import com.tck.erpmanager.net.contract.AccountContract;
 import com.tck.erpmanager.net.contract.WarehouseContract;
 import com.tck.erpmanager.net.presenter.GetAccountListPresenterImpl;
 import com.tck.erpmanager.net.presenter.GetWarehouseListPresenterImpl;
+import com.tck.erpmanager.ui.activity.purchase_order.adapter.ProductItemAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -52,6 +54,9 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
     private List<String> warhouseStrList = new ArrayList<>();
     private List<AccountListBean.DataBean> accountDataList = new ArrayList<>();
     private List<String> accountStrList = new ArrayList<>();
+
+    private List<ProductListBean.DataBean> mProductList = new ArrayList<>();
+    private ProductItemAdapter mProductItemAdapter;
 
     @Override
     protected int getLayoutId() {
@@ -93,6 +98,8 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
         findViewById(R.id.select_product).setOnClickListener(this);
         findViewById(R.id.purchase).setOnClickListener(this);
 
+        mProductItemAdapter = new ProductItemAdapter(this, mProductList);
+        listView.setAdapter(mProductItemAdapter);
     }
 
     @Override
@@ -162,8 +169,17 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void backInfo(MessageEvent event) {
-
+    public void backInfo(MessageEvent<List<ProductListBean.DataBean>> event) {
+        if (event != null) {
+            if (event.getTag().equals("AddPurchaseOrderSelectGoodsActivity")) {
+                List<ProductListBean.DataBean> data = event.getData();
+                if (mProductList.size() > 0) {
+                    mProductList.clear();
+                }
+                mProductList.addAll(data);
+                mProductItemAdapter.notifyDataSetChanged();
+            }
+        }
     }
 
     /**

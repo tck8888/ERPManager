@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.tck.commonlibrary.common.CommonConstant;
+
 /**
  * Created by tck on 2017/6/24.
  */
@@ -28,6 +30,13 @@ public abstract class BaseFragment extends Fragment {
         return mView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (CommonConstant.IS_DEBUG){
+            System.out.println("=======" + getClass().getSimpleName()+"=======");
+        }
+    }
 
     protected abstract int getLayoutId();
 

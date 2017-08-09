@@ -6,15 +6,20 @@ import android.widget.ListView;
 
 import com.tck.commonlibrary.base.BaseActivity;
 import com.tck.erpmanager.R;
+import com.tck.erpmanager.bean.MessageEvent;
 import com.tck.erpmanager.bean.ProductListBean;
 import com.tck.erpmanager.net.contract.ProductContract;
 import com.tck.erpmanager.net.presenter.GetGoodsListPresnterImpl;
 import com.tck.erpmanager.ui.activity.purchase_order.adapter.AddPurchaseOrderSelectGoodsAdapter;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 采购单选择商品
+ * <p>
  * Created by tck on 2017/8/8.
  */
 
@@ -24,6 +29,7 @@ public class AddPurchaseOrderSelectGoodsActivity extends BaseActivity implements
     private ListView listView;
 
     private List<ProductListBean.DataBean> mList = new ArrayList<>();
+    private List<ProductListBean.DataBean> mSelectList = new ArrayList<>();
     private GetGoodsListPresnterImpl mGetGoodsListPresnter;
     private AddPurchaseOrderSelectGoodsAdapter mAddPurchaseOrderSelectGoodsAdapter;
 
@@ -76,8 +82,24 @@ public class AddPurchaseOrderSelectGoodsActivity extends BaseActivity implements
         }
     }
 
+    /**
+     * 选择好了
+     */
     private void selectOk() {
 
+        if (mList.size() > 0) {
+            if (mSelectList.size() > 0) {
+                mSelectList.clear();
+            }
+            for (int i = 0; i < mList.size(); i++) {
+                ProductListBean.DataBean dataBean = mList.get(i);
+                if (dataBean.isSelected()) {
+                    mSelectList.add(dataBean);
+                }
+            }
+            EventBus.getDefault().post(new MessageEvent<List<ProductListBean.DataBean>>("AddPurchaseOrderSelectGoodsActivity", mSelectList));
+        }
+        finish();
     }
 
     @Override

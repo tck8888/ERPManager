@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="@dimen/dimen_15dp"
+    >
+
+    <TextView
+        android:id="@+id/product_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLength="10"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:text="商品名称商品名称商品"/>
+
+    <TextView
+        android:id="@+id/product_price"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:gravity="center"
+        android:text="9999"
+        android:textColor="@color/coral"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/件"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/decrease_product"
+        android:layout_width="24dp"
+        android:layout_height="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:src="@mipmap/btn_minus_black"/>
+
+    <TextView
+        android:id="@+id/product_count"
+        android:layout_width="@dimen/dimen_32dp"
+        android:layout_height="@dimen/dimen_20dp"
+        android:background="@drawable/shape_border_warm_grey_solid_white"
+        android:text="9999"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/increase_product"
+        android:layout_width="24dp"
+        android:layout_height="@dimen/dimen_20dp"
+        android:src="@mipmap/btn_plus_black"/>
+</LinearLayout>

@@ -8,5 +8,7 @@ package com.tck.commonlibrary.common;
 
 public interface CommonConstant {
 
-   String KEY_USER_ID = "userId";
+    String KEY_USER_ID = "userId";
+
+    boolean IS_DEBUG = true;
 }

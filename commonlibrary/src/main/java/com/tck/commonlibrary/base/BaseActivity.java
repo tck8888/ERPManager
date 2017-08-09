@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import com.tck.commonlibrary.common.CommonConstant;
 import com.tck.commonlibrary.widget.LoadingDialog;
 
 /**
@@ -36,6 +37,14 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     public void showToast(String msg) {
         if (!TextUtils.isEmpty(msg)) {
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (CommonConstant.IS_DEBUG){
+            System.out.println("=======" + getClass().getSimpleName()+"=======");
         }
     }
 
