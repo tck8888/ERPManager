@@ -19,7 +19,16 @@ public class AddPurchaseOrderModelImpl implements PurchaseOrderContract.AddPurch
     public void addPurchaseOrder(PurchaseOrderBean purchaseOrderBean, final MyCallBack<BaseData<String>> myCallBack) {
         OkGo.<BaseData<String>>get(HttpUrlList.PurchaseOrderModule.ADD_PURCHASE_ORDER_URL)
                 .params("userId", purchaseOrderBean.getUserId())
-
+                .params("warehouseId", purchaseOrderBean.getWarehouseId())
+                .params("warehouseName", purchaseOrderBean.getWarehouseName())
+                .params("accountId", purchaseOrderBean.getAccountId())
+                .params("accountName", purchaseOrderBean.getAccountName())
+                .params("totalCount", purchaseOrderBean.getTotalCount())
+                .params("totalPrice", purchaseOrderBean.getTotalprice())
+                .params("productId", purchaseOrderBean.getProductId())
+                .params("productCount", purchaseOrderBean.getTotalCount())
+                .params("date", purchaseOrderBean.getDate())
+                .params("remark", purchaseOrderBean.getRemark())
                 .execute(new AbsCallback<BaseData<String>>() {
                     @Override
                     public void onSuccess(Response<BaseData<String>> response) {

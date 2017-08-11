@@ -8,7 +8,9 @@ public class PurchaseOrderBean {
 
     private int userId;
     private int accountId;
+    private String accountName;
     private int warehouseId;
+    private String warehouseName;
     private int totalCount;
     private double totalprice;
     private String productId;
@@ -87,5 +89,21 @@ public class PurchaseOrderBean {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getAccountName() {
+        return accountName;
+    }
+
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
+    }
+
+    public String getWarehouseName() {
+        return warehouseName;
+    }
+
+    public void setWarehouseName(String warehouseName) {
+        this.warehouseName = warehouseName;
     }
 }

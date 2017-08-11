@@ -333,7 +333,9 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
         }
         PurchaseOrderBean purchaseOrderBean = new PurchaseOrderBean();
         purchaseOrderBean.setUserId(mUserId);
+        purchaseOrderBean.setAccountName(selectAccount.getText().toString());
         purchaseOrderBean.setAccountId(accountId);
+        purchaseOrderBean.setWarehouseName(selectWarehouse.getText().toString());
         purchaseOrderBean.setWarehouseId(warehouseId);
         purchaseOrderBean.setDate(selectDate.getText().toString().trim());
         purchaseOrderBean.setRemark(remark.getText().toString().trim());
