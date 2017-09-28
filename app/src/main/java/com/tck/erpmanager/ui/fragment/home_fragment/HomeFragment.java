@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.view.View;
 
 import com.tck.commonlibrary.base.BaseFragment;
-import com.tck.commonlibrary.utils.GlideImageLoader;
 import com.tck.erpmanager.R;
 import com.tck.erpmanager.ui.activity.account_manager.GetAccountListActivity;
 import com.tck.erpmanager.ui.activity.goods_manager.GetGoodsListActivity;
@@ -25,7 +24,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private List<String> mStringList = new ArrayList<>();
 
 
-    private String url = "http://tck.oss-cn-shanghai.aliyuncs.com/image/IMG_20160407_200713.jpg";
+   /* private String url = "http://tck.oss-cn-shanghai.aliyuncs.com/image/IMG_20160407_200713.jpg";*/
 
     @Override
     protected int getLayoutId() {
@@ -34,15 +33,15 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void initData() {
+     /*   mStringList.add(url);
         mStringList.add(url);
         mStringList.add(url);
-        mStringList.add(url);
-        mStringList.add(url);
+        mStringList.add(url);*/
     }
 
     @Override
     protected void initView(View view) {
-        mBanner = (Banner) view.findViewById(R.id.banner);
+     /*   mBanner = (Banner) view.findViewById(R.id.banner);
         //设置图片加载器
         mBanner.setImageLoader(new GlideImageLoader());
         //设置图片集合
@@ -50,7 +49,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         //设置banner动画效果
         //banner设置方法全部调用完毕时最后调用
         mBanner.setDelayTime(3000);
-        mBanner.start();
+        mBanner.start();*/
 
         view.findViewById(R.id.goods_manager).setOnClickListener(this);
         view.findViewById(R.id.buy_order).setOnClickListener(this);
@@ -65,15 +64,15 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public void onStart() {
         super.onStart();
-        //开始轮播
-        mBanner.startAutoPlay();
+      /*  //开始轮播
+        mBanner.startAutoPlay();*/
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //结束轮播
-        mBanner.stopAutoPlay();
+      /*  //结束轮播
+        mBanner.stopAutoPlay();*/
     }
 
     @Override

@@ -91,22 +91,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     private void userLogin() {
         String phone = mPhoneTv.getText().toString().trim();
         String pwd = mPwdTv.getText().toString().trim();
-
         if (TextUtils.isEmpty(phone)) {
             showToast(getString(R.string.login_phone_string));
             return;
         }
-
         if (!PhoneFormatCheckUtils.isChinaPhoneLegal(phone)) {
             showToast(getString(R.string.phone_format_string));
             return;
         }
-
         if (TextUtils.isEmpty(pwd)) {
             showToast(getString(R.string.login_pwd_string));
             return;
         }
-
         mLoginPresenter.login(phone, pwd);
     }
 

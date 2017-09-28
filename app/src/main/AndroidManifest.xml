@@ -77,7 +77,7 @@
         <activity
             android:name=".ui.activity.login_register.LoginActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
         <!--注册-->
         <activity
             android:name=".ui.activity.login_register.RegisterActivity"
