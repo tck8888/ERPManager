@@ -61,6 +61,7 @@ public class ProductListBean {
         private String productImage;
         private String remark;
         private int userId;
+        private int stock;
 
         private boolean isSelected = false;
         private int count = 1;
@@ -127,6 +128,14 @@ public class ProductListBean {
 
         public void setUserId(int userId) {
             this.userId = userId;
+        }
+
+        public int getStock() {
+            return stock;
+        }
+
+        public void setStock(int stock) {
+            this.stock = stock;
         }
     }
 }

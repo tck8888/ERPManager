@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
@@ -42,4 +43,148 @@
             android:background="@color/white_three"/>
     </RelativeLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50dp"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:paddingRight="@dimen/dimen_15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16"
+                    tools:text="仓库"/>
+
+                <TextView
+                    android:id="@+id/warehouese_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:text="仓库"
+                    android:textSize="@dimen/sp_16"/>
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0_5dp"
+                android:background="@color/white_three"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50dp"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:paddingRight="@dimen/dimen_15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="结算账户"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16"/>
+
+                <TextView
+                    android:id="@+id/account_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:textSize="@dimen/sp_16"
+                    tools:text="仓库"/>
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0_5dp"
+                android:background="@color/white_three"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:text="商品列表"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0_5dp"
+                android:background="@color/white_three"/>
+
+            <com.tck.commonlibrary.widget.CustomListView
+                android:id="@+id/custom_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0_5dp"
+                android:background="@color/white_three"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50dp"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:paddingRight="@dimen/dimen_15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="采购日期"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16"/>
+
+                <TextView
+                    android:id="@+id/purchase_order_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:textSize="@dimen/sp_16"
+                    tools:text="仓库"/>
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0_5dp"
+                android:background="@color/white_three"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50dp"
+                android:background="@color/white_two"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:text="备注"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0_5dp"
+                android:background="@color/white_three"/>
+
+            <TextView
+                android:id="@+id/remark"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="@dimen/dimen_15dp"
+                android:layout_marginRight="@dimen/dimen_15dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:background="@drawable/shape_radius_6dp_border_warm_grey_solid_white"
+                android:gravity="top"
+                android:maxLength="128"
+                android:padding="6dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

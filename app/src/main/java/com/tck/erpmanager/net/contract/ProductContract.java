@@ -48,4 +48,18 @@ public interface ProductContract {
     interface GetGoodsDetailModel {
         void getGoodsDetail(int goodsId,MyCallBack<ProductDetailBean> myCallBack);
     }
+
+
+    interface GetGoodsListWithStockPresnter {
+        void getGoodsList(int warehouseId);
+    }
+
+    interface GetGoodsListWithStockView extends IBaseView {
+        void showData(ProductListBean productListBean);
+    }
+
+    interface GetGoodsListWithStockModel {
+        void getGoodsList(int warehouseId,MyCallBack<ProductListBean> myCallBack);
+    }
+
 }

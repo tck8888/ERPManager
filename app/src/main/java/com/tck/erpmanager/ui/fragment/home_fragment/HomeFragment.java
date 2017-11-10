@@ -8,6 +8,7 @@ import com.tck.erpmanager.R;
 import com.tck.erpmanager.ui.activity.account_manager.GetAccountListActivity;
 import com.tck.erpmanager.ui.activity.goods_manager.GetGoodsListActivity;
 import com.tck.erpmanager.ui.activity.purchase_order.GetPurchaseOrderListActivity;
+import com.tck.erpmanager.ui.activity.sale_order.GetSaleOrderListActivity;
 import com.tck.erpmanager.ui.activity.warehouse_manager.GetWarehouseListActivity;
 import com.youth.banner.Banner;
 
@@ -94,6 +95,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
              * 销售单
              */
             case R.id.sale_order:
+                startActivity(new Intent(getContext(), GetSaleOrderListActivity.class));
                 break;
             /**
              * 库存查询

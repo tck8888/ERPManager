@@ -1,4 +1,4 @@
-package com.tck.erpmanager.ui.activity.purchase_order;
+package com.tck.erpmanager.ui.activity.sale_order;
 
 import android.content.Intent;
 import android.text.TextUtils;
@@ -17,12 +17,12 @@ import com.tck.erpmanager.R;
 import com.tck.erpmanager.bean.AccountListBean;
 import com.tck.erpmanager.bean.MessageEvent;
 import com.tck.erpmanager.bean.ProductListBean;
-import com.tck.erpmanager.bean.PurchaseOrderBean;
+import com.tck.erpmanager.bean.SaleOrderBean;
 import com.tck.erpmanager.bean.WarehouseListBean;
 import com.tck.erpmanager.net.contract.AccountContract;
-import com.tck.erpmanager.net.contract.PurchaseOrderContract;
+import com.tck.erpmanager.net.contract.SaleOrderContract;
 import com.tck.erpmanager.net.contract.WarehouseContract;
-import com.tck.erpmanager.net.presenter.AddPurchaseOrderPresenterImpl;
+import com.tck.erpmanager.net.presenter.AddSaleOrderPresenterImpl;
 import com.tck.erpmanager.net.presenter.GetAccountListPresenterImpl;
 import com.tck.erpmanager.net.presenter.GetWarehouseListPresenterImpl;
 import com.tck.erpmanager.ui.activity.purchase_order.adapter.ProductItemAdapter;
@@ -37,11 +37,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 新增采购单
+ * 新增销售单
  * Created by tck on 2017/8/6.
  */
 
-public class AddPurchaseOrderActivity extends BaseActivity implements View.OnClickListener, WarehouseContract.GetWarehouseListView, AccountContract.GetAccountListView, PurchaseOrderContract.AddPurchaseOrderView {
+public class AddSaleOrderActivity extends BaseActivity implements View.OnClickListener, WarehouseContract.GetWarehouseListView, AccountContract.GetAccountListView, SaleOrderContract.AddSaleOrderView {
 
     private TextView selectWarehouse;
     private TextView selectAccount;
@@ -66,11 +66,11 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
     private List<ProductListBean.DataBean> mProductList = new ArrayList<>();
     private ProductItemAdapter mProductItemAdapter;
 
-    private AddPurchaseOrderPresenterImpl mAddPurchaseOrderPresenter;
+    private AddSaleOrderPresenterImpl mAddSaleOrderPresenter;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_add_purchase_order;
+        return R.layout.activity_add_sale_order;
     }
 
     @Override
@@ -85,7 +85,7 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
             GetAccountListPresenterImpl getAccountListPresenter = new GetAccountListPresenterImpl(this);
             getAccountListPresenter.getAccountList(mUserId);
             //添加采购单
-            mAddPurchaseOrderPresenter = new AddPurchaseOrderPresenterImpl(this);
+            mAddSaleOrderPresenter = new AddSaleOrderPresenterImpl(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -121,10 +121,15 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
             @Override
             public void increase(int position) {
                 int count = mProductList.get(position).getCount();
+                int stock = mProductList.get(position).getStock();
                 count++;
-                mProductList.get(position).setCount(count);
-                mProductItemAdapter.notifyDataSetChanged();
-                calculatePrice(mProductList);
+                if (count <= stock) {
+                    mProductList.get(position).setCount(count);
+                    mProductItemAdapter.notifyDataSetChanged();
+                    calculatePrice(mProductList);
+                } else {
+                    showToast("超出库存数量");
+                }
             }
         });
 
@@ -227,7 +232,7 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void backInfo(MessageEvent<List<ProductListBean.DataBean>> event) {
         if (event != null) {
-            if (event.getTag().equals("AddPurchaseOrderSelectGoodsActivity")) {
+            if (event.getTag().equals("AddSaleOrderSelectGoodsActivity")) {
                 List<ProductListBean.DataBean> data = event.getData();
                 if (mProductList.size() > 0) {
                     mProductList.clear();
@@ -289,7 +294,12 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
      * 添加商品
      */
     private void addProduct() {
-        Intent intent = new Intent(this, AddPurchaseOrderSelectGoodsActivity.class);
+        if (warehouseId == -1) {
+            showToast("请选择仓库");
+            return;
+        }
+        Intent intent = new Intent(this, AddSaleOrderSelectGoodsActivity.class);
+        intent.putExtra("warehouseId", warehouseId);
         startActivity(intent);
     }
 
@@ -331,22 +341,22 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
             showToast("请选择业务日期");
             return;
         }
-        PurchaseOrderBean purchaseOrderBean = new PurchaseOrderBean();
-        purchaseOrderBean.setUserId(mUserId);
-        purchaseOrderBean.setAccountName(selectAccount.getText().toString());
-        purchaseOrderBean.setAccountId(accountId);
-        purchaseOrderBean.setWarehouseName(selectWarehouse.getText().toString());
-        purchaseOrderBean.setWarehouseId(warehouseId);
-        purchaseOrderBean.setDate(selectDate.getText().toString().trim());
-        purchaseOrderBean.setRemark(remark.getText().toString().trim());
-        purchaseOrderBean.setTotalCount(totalCount);
-        purchaseOrderBean.setTotalprice(totalprice);
+        SaleOrderBean saleOrderBean = new SaleOrderBean();
+        saleOrderBean.setUserId(mUserId);
+        saleOrderBean.setAccountName(selectAccount.getText().toString());
+        saleOrderBean.setAccountId(accountId);
+        saleOrderBean.setWarehouseName(selectWarehouse.getText().toString());
+        saleOrderBean.setWarehouseId(warehouseId);
+        saleOrderBean.setDate(selectDate.getText().toString().trim());
+        saleOrderBean.setRemark(remark.getText().toString().trim());
+        saleOrderBean.setTotalCount(totalCount);
+        saleOrderBean.setTotalprice(totalprice);
         StringBuilder sb1 = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
         for (int i = 0; i < mProductList.size(); i++) {
             int id = mProductList.get(i).getId();
             int count = mProductList.get(i).getCount();
-            if (i == mProductList.size()-1) {
+            if (i == mProductList.size() - 1) {
                 sb1.append(id);
                 sb2.append(count);
             } else {
@@ -354,10 +364,10 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
                 sb2.append(count + ",");
             }
         }
-        purchaseOrderBean.setProductCount(sb2.toString());
-        purchaseOrderBean.setProductId(sb1.toString());
+        saleOrderBean.setProductCount(sb2.toString());
+        saleOrderBean.setProductId(sb1.toString());
 
-        mAddPurchaseOrderPresenter.addPurchaseOrder(purchaseOrderBean);
+        mAddSaleOrderPresenter.addSaleOrder(saleOrderBean);
     }
 
     @Override
@@ -389,11 +399,11 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
     }
 
     @Override
-    public void showAddPurchaseOrderSuccess(BaseData<String> data) {
+    public void showAddSaleOrderSuccess(BaseData<String> data) {
         if (data != null) {
             showToast(data.getMessage());
             if (data.getStatus() == 200) {
-                EventBus.getDefault().post(new MessageEvent<String>("AddPurchaseOrderActivity", "success"));
+                EventBus.getDefault().post(new MessageEvent<String>("AddSaleOrderActivity", "success"));
                 finish();
             }
         }

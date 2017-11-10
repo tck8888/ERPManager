@@ -15,6 +15,7 @@ public interface HttpUrlList {
     String USER_MODULE = "/user";
     String PRODUCT_MODULE = "/product";
     String PURCHASEORDER_MODULE = "/purchaseOrder";
+    String SALE_ORDER_MODULE = "/saleOrder";
     String WAREHOUSE_MODULE = "/warehouse";
     String ACCOUNT_MODULE = "/account";
 
@@ -29,6 +30,7 @@ public interface HttpUrlList {
     interface ProductModule {
         String ADD_GOODS = BASE_URL + PRODUCT_MODULE + "/addProduct";
         String GET_GOODS_LIST = BASE_URL + PRODUCT_MODULE + "/findAll";
+        String GET_GOODS_WITH_STOCK_LIST = BASE_URL + PRODUCT_MODULE + "/findAllByStock";
         String GET_GOODS_DETAIL = BASE_URL + PRODUCT_MODULE + "/findProductById";
         String UPDATE_GOODS_DETAIL = BASE_URL + PRODUCT_MODULE + "/updateProduct";
 
@@ -37,7 +39,11 @@ public interface HttpUrlList {
     interface PurchaseOrderModule {
         String ADD_PURCHASE_ORDER_URL = BASE_URL + PURCHASEORDER_MODULE + "/addOrder";
         String ADD_PURCHASE_ORDER_LIST_URL = BASE_URL + PURCHASEORDER_MODULE + "/findOrderByUserId";
+    }
 
+    interface SaleOrderModule {
+        String ADD_SALE_ORDER_URL = BASE_URL + SALE_ORDER_MODULE + "/addOrder";
+        String ADD_SALE_ORDER_LIST_URL = BASE_URL + SALE_ORDER_MODULE + "/findOrderByUserId";
     }
 
     interface WarehouseModule {
@@ -51,6 +57,5 @@ public interface HttpUrlList {
         String GET_ACCOUNT_LIST_URL = BASE_URL + ACCOUNT_MODULE + "/getAccountList";
         String GET_ACCOUNT_DETAIL_URL = BASE_URL + ACCOUNT_MODULE + "/findAccountById";
         String ADD_ACCOUNT_URL = BASE_URL + ACCOUNT_MODULE + "/addAccount";
-
     }
 }
