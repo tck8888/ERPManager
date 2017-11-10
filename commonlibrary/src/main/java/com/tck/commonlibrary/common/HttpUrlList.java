@@ -25,6 +25,9 @@ public interface HttpUrlList {
     interface MemberModule {
         String LOGIN_URL = BASE_URL + USER_MODULE + "/login";
         String REGISTER_URL = BASE_URL + USER_MODULE + "/register";
+
+        String UPDATE_USER_INFO = BASE_URL + USER_MODULE + "/update";
+        String FIND_USER_BY_ID = BASE_URL + USER_MODULE + "/findUserById";
     }
 
     interface ProductModule {

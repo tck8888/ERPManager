@@ -55,6 +55,8 @@ public class User {
         private String password;
         private String email;
         private String avatar;
+        private String nickName;
+
 
         public int getId() {
             return id;
@@ -94,6 +96,14 @@ public class User {
 
         public void setAvatar(String avatar) {
             this.avatar = avatar;
+        }
+
+        public String getNickName() {
+            return nickName;
+        }
+
+        public void setNickName(String nickName) {
+            this.nickName = nickName;
         }
     }
 }
