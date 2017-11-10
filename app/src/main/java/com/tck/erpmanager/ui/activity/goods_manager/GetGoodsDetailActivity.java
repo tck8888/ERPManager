@@ -85,7 +85,6 @@ public class GetGoodsDetailActivity extends BaseActivity implements View.OnClick
     public void showData(ProductDetailBean productDetailBean) {
 
         if (productDetailBean != null) {
-            showToast(productDetailBean.getMessgae());
             if (productDetailBean.getStatus() == 200) {
                 if (productDetailBean.getData() != null) {
                     setViewData(productDetailBean.getData());

@@ -194,7 +194,7 @@ public class AddGoodsActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void showSuccess(InfoBean str) {
         if (str != null) {
-            showToast(str.getMessage());
+            showToast(str.getMessgae());
             if (str.getStatus() == 200) {
                 url = str.getData();
                 ImageLoadUtils.getInstance().load(this, mGoodImage, url);

@@ -224,7 +224,7 @@ public class UpdateGoodsActivity extends BaseActivity implements View.OnClickLis
     @Override
     public void showSuccess(InfoBean str) {
         if (str != null) {
-            showToast(str.getMessage());
+            showToast(str.getMessgae());
             if (str.getStatus() == 200) {
                 url = str.getData();
                 ImageLoadUtils.getInstance().load(this, goodImage, url);
@@ -235,7 +235,7 @@ public class UpdateGoodsActivity extends BaseActivity implements View.OnClickLis
     @Override
     public void showData(BaseData<String> msg) {
         if (msg != null) {
-            showToast(msg.getMessage());
+            showToast(msg.getData());
             if (msg.getStatus() == 200) {
                 finish();
                 EventBus.getDefault().post(new MessageEvent<String>("UpdateGoodsActivity", "success"));

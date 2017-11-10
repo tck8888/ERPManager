@@ -74,6 +74,36 @@
         android:layout_height="@dimen/dimen_0_5dp"
         android:background="@color/white_three"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginRight="@dimen/dimen_15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="账户余额"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_16"/>
+
+        <TextView
+            android:id="@+id/account_price"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_16"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0_5dp"
+        android:background="@color/white_three"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_50dp"

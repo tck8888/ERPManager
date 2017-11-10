@@ -24,9 +24,16 @@ public class GetAccountListAdapter extends BasicAdapter<AccountListBean.DataBean
     protected void onInitView(View convertView, int position) {
 
         TextView accountName = get(convertView, R.id.account_name);
+        TextView accountPrice = get(convertView, R.id.account_price);
 
         AccountListBean.DataBean dataBean = mDataList.get(position);
         accountName.setText(dataBean.getAccountName());
+        accountPrice.setText(dataBean.getBalance() + "");
+        if (dataBean.getBalance() > 0.00) {
+            accountPrice.setTextColor(mContext.getResources().getColor(R.color.apple_green));
+        }else {
+            accountPrice.setTextColor(mContext.getResources().getColor(R.color.coral));
+        }
     }
 
     @Override

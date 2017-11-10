@@ -17,6 +17,7 @@ public class GetAccountDetailActivity extends BaseActivity implements View.OnCli
 
 
     private TextView accountName;
+    private TextView accountPrice;
     private TextView remark;
 
     @Override
@@ -41,6 +42,7 @@ public class GetAccountDetailActivity extends BaseActivity implements View.OnCli
         findViewById(R.id.icon_back).setOnClickListener(this);
 
         accountName = (TextView) findViewById(R.id.account_name);
+        accountPrice = (TextView) findViewById(R.id.account_price);
         remark = (TextView) findViewById(R.id.remark);
 
     }
@@ -57,7 +59,6 @@ public class GetAccountDetailActivity extends BaseActivity implements View.OnCli
     @Override
     public void showAccountDeatilBean(AccountDetailBean accountDetailBean) {
         if (accountDetailBean != null) {
-            showToast(accountDetailBean.getMessgae());
             if (accountDetailBean.getData() != null) {
                 setViewData(accountDetailBean.getData());
             }
@@ -66,6 +67,14 @@ public class GetAccountDetailActivity extends BaseActivity implements View.OnCli
 
     private void setViewData(AccountDetailBean.DataBean data) {
         accountName.setText(data.getAccountName());
+        double balance = data.getBalance();
+        accountPrice.setText(balance + "");
+        if (balance > 0.00) {
+            accountPrice.setTextColor(getResources().getColor(R.color.apple_green));
+        } else {
+            accountPrice.setTextColor(getResources().getColor(R.color.coral));
+        }
         remark.setText(data.getRemark());
+
     }
 }

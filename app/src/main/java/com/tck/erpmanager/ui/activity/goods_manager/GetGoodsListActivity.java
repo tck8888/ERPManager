@@ -107,7 +107,6 @@ public class GetGoodsListActivity extends BaseActivity implements View.OnClickLi
     @Override
     public void showData(ProductListBean productListBean) {
         if (productListBean != null) {
-            showToast(productListBean.getMessgae());
             if (productListBean.getData() != null) {
                 if (productListBean.getData().size() > 0) {
                     if (mList.size() > 0) {

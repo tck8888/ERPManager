@@ -5,13 +5,14 @@
                 android:orientation="vertical">
 
     <TextView
-        android:layout_marginTop="80dp"
-        android:textColor="@color/black"
-        android:textSize="33sp"
-        android:layout_centerHorizontal="true"
-        android:text="进 销 存"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="进 销 存"
+        android:textColor="@color/black"
+        android:textSize="33sp"/>
+
     <FrameLayout
         android:id="@+id/commom_fl"
         android:layout_width="match_parent"
@@ -76,4 +77,35 @@
         android:gravity="center"
         android:text="@string/to_register_string"
         android:textSize="14sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimen_8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="姓名: 田程凯"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginTop="4dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="准考证号: 058312158046"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginTop="4dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="专业: 计算机基础及应用"
+            android:textSize="15sp"/>
+    </LinearLayout>
 </RelativeLayout>

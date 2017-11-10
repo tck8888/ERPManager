@@ -8,12 +8,12 @@ public class InfoBean {
 
     /**
      * status : 200
-     * message : 注册成功
-     * data : SUCCESS
+     * messgae : 注册失败
+     * data : 手机号已经存在
      */
 
     private int status;
-    private String message;
+    private String messgae;
     private String data;
 
     public int getStatus() {
@@ -24,12 +24,12 @@ public class InfoBean {
         this.status = status;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMessgae() {
+        return messgae;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMessgae(String messgae) {
+        this.messgae = messgae;
     }
 
     public String getData() {

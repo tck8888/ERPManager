@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">ERPManager</string>
+    <string name="app_name">进销存</string>
+    <string name="theme_title">进销存管理利器&#160;你值得拥有</string>
 
 </resources>

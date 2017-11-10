@@ -79,8 +79,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void showData(InfoBean msg) {
         if (msg != null) {
-            showToast(msg.getMessage());
-            if (msg.getData().equals("SUCCESS")) {
+            showToast(msg.getData());
+            if (msg.getStatus()==200) {
                 EventBus.getDefault().post(new MessageEvent<String>("UserBean", mPhoneTv.getText().toString().trim()));
                 finish();
             }

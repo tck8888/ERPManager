@@ -10,9 +10,14 @@ import com.tck.commonlibrary.common.CommonConstant;
 import com.tck.commonlibrary.utils.AppSharePreferenceMgr;
 import com.tck.erpmanager.R;
 import com.tck.erpmanager.bean.AccountListBean;
+import com.tck.erpmanager.bean.MessageEvent;
 import com.tck.erpmanager.net.contract.AccountContract;
 import com.tck.erpmanager.net.presenter.GetAccountListPresenterImpl;
 import com.tck.erpmanager.ui.activity.account_manager.adapter.GetAccountListAdapter;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +33,7 @@ public class GetAccountListActivity extends BaseActivity implements View.OnClick
     private ListView listView;
     private List<AccountListBean.DataBean> mDataBeanList = new ArrayList<>();
     private GetAccountListAdapter mAdapter;
+    private GetAccountListPresenterImpl mGetAccountListPresenter;
 
     @Override
     protected int getLayoutId() {
@@ -36,8 +42,8 @@ public class GetAccountListActivity extends BaseActivity implements View.OnClick
 
     @Override
     protected void initData() {
-        GetAccountListPresenterImpl getAccountListPresenter = new GetAccountListPresenterImpl(this);
-        getAccountListPresenter.getAccountList((Integer) AppSharePreferenceMgr.get(this, CommonConstant.KEY_USER_ID, -1));
+        mGetAccountListPresenter = new GetAccountListPresenterImpl(this);
+        mGetAccountListPresenter.getAccountList((Integer) AppSharePreferenceMgr.get(this, CommonConstant.KEY_USER_ID, -1));
     }
 
     @Override
@@ -58,6 +64,29 @@ public class GetAccountListActivity extends BaseActivity implements View.OnClick
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent<String> event) {
+        if (event.getTag().equals("AddAccounActivity")) {
+            mGetAccountListPresenter.getAccountList((Integer) AppSharePreferenceMgr.get(this, CommonConstant.KEY_USER_ID, -1));
+        }
     }
 
 
@@ -81,7 +110,6 @@ public class GetAccountListActivity extends BaseActivity implements View.OnClick
     @Override
     public void showAccountList(AccountListBean accountListBean) {
         if (accountListBean != null) {
-            showToast(accountListBean.getMessgae());
             if (accountListBean.getData() != null) {
                 if (accountListBean.getData().size() > 0) {
                     if (mDataBeanList.size() > 0) {

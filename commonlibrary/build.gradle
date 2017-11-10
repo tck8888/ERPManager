@@ -42,4 +42,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.1'
 
     compile 'com.contrarywind:Android-PickerView:3.2.5'
+
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+
 }

@@ -30,6 +30,7 @@
         tools:text="商品名称"/>
 
     <TextView
+        android:visibility="invisible"
         android:id="@+id/goods_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,6 +65,7 @@
         tools:text="采购价"/>
 
     <TextView
+        android:visibility="invisible"
         android:id="@+id/goods_sale_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,6 +77,7 @@
         tools:text="零售价"/>
 
     <TextView
+        android:visibility="invisible"
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

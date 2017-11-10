@@ -18,7 +18,9 @@ public class RegisterModelImpl implements LoginAndRegisterContract.RegisterModel
     @Override
     public void register(String username, String pwd, final MyCallBack<InfoBean> myCallBack) {
 
-        OkGo.<InfoBean>get(HttpUrlList.MemberModule.REGISTER_URL+username +"/" + pwd)
+        OkGo.<InfoBean>get(HttpUrlList.MemberModule.REGISTER_URL)
+                .params("username", username)
+                .params("password", pwd)
                 .execute(new AbsCallback<InfoBean>() {
                     @Override
                     public void onSuccess(Response<InfoBean> response) {

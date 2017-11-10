@@ -6,10 +6,11 @@ package com.tck.erpmanager.bean;
 
 public class AccountDetailBean {
 
+
     /**
      * status : 200
      * messgae : 查询成功
-     * data : {"id":2,"accountName":"测试账户","remark":"测试账户备注","userId":1}
+     * data : {"id":2,"accountName":"测试账户","remark":"测试账户备注","userId":1,"balance":null}
      */
 
     private int status;
@@ -46,12 +47,14 @@ public class AccountDetailBean {
          * accountName : 测试账户
          * remark : 测试账户备注
          * userId : 1
+         * balance : null
          */
 
         private int id;
         private String accountName;
         private String remark;
         private int userId;
+        private double balance;
 
         public int getId() {
             return id;
@@ -83,6 +86,14 @@ public class AccountDetailBean {
 
         public void setUserId(int userId) {
             this.userId = userId;
+        }
+
+        public double getBalance() {
+            return balance;
+        }
+
+        public void setBalance(double balance) {
+            this.balance = balance;
         }
     }
 }

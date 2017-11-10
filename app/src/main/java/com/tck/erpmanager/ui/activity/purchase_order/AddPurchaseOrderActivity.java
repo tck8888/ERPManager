@@ -390,7 +390,13 @@ public class AddPurchaseOrderActivity extends BaseActivity implements View.OnCli
 
     @Override
     public void showAddPurchaseOrderSuccess(BaseData<String> data) {
-
+        if (data != null) {
+            showToast(data.getMessage());
+            if (data.getStatus() == 200) {
+                EventBus.getDefault().post(new MessageEvent<String>("AddPurchaseOrderActivity", "success"));
+                finish();
+            }
+        }
     }
 
     @Override
