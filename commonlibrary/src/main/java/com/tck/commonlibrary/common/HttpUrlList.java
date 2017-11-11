@@ -46,7 +46,7 @@ public interface HttpUrlList {
 
     interface SaleOrderModule {
         String ADD_SALE_ORDER_URL = BASE_URL + SALE_ORDER_MODULE + "/addOrder";
-        String ADD_SALE_ORDER_LIST_URL = BASE_URL + SALE_ORDER_MODULE + "/findOrderByUserId";
+        String GET_SALE_ORDER_LIST_URL = BASE_URL + SALE_ORDER_MODULE + "/findOrderByUserId";
     }
 
     interface WarehouseModule {

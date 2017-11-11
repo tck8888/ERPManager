@@ -17,7 +17,7 @@ public class GetSaleOrderListModelImpl implements SaleOrderContract.GetSaleOrder
 
     @Override
     public void getSaleOrderList(int userId, final MyCallBack<SaleOrderListBean> myCallBack) {
-        OkGo.<SaleOrderListBean>get(HttpUrlList.PurchaseOrderModule.ADD_PURCHASE_ORDER_LIST_URL)
+        OkGo.<SaleOrderListBean>get(HttpUrlList.SaleOrderModule.GET_SALE_ORDER_LIST_URL)
                 .params("userId", userId)
                 .execute(new AbsCallback<SaleOrderListBean>() {
                     @Override

@@ -122,6 +122,11 @@ public class GetPurchaseOrderListActivity extends BaseActivity implements View.O
                         }
                         mDataBeanList.addAll(purchaseOrderListBean.getData());
                         mGetPurchaseOrderListAdapter.notifyDataSetChanged();
+                    } else {
+                        if (!mDataBeanList.isEmpty()) {
+                            mDataBeanList.clear();
+                        }
+                        mGetPurchaseOrderListAdapter.notifyDataSetChanged();
                     }
                 }
             }

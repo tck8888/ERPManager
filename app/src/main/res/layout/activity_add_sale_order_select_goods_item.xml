@@ -109,6 +109,7 @@
         android:layout_marginRight="@dimen/dimen_8dp"
         android:textColor="@color/coral"
         android:textSize="12sp"
+        android:visibility="invisible"
         tools:text="零售价"/>
 
     <TextView
@@ -120,7 +121,8 @@
         android:layout_toLeftOf="@id/goods_sale_price"
         android:text="采购价: "
         android:textColor="@color/black"
-        android:textSize="12sp"/>
+        android:textSize="12sp"
+        android:visibility="invisible"/>
 
     <android.support.v4.widget.Space
         android:layout_width="match_parent"

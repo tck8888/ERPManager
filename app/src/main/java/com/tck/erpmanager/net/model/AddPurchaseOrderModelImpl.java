@@ -26,7 +26,7 @@ public class AddPurchaseOrderModelImpl implements PurchaseOrderContract.AddPurch
                 .params("totalCount", purchaseOrderBean.getTotalCount())
                 .params("totalPrice", purchaseOrderBean.getTotalprice())
                 .params("productId", purchaseOrderBean.getProductId())
-                .params("productCount", purchaseOrderBean.getTotalCount())
+                .params("productCount", purchaseOrderBean.getProductCount())
                 .params("date", purchaseOrderBean.getDate())
                 .params("remark", purchaseOrderBean.getRemark())
                 .execute(new AbsCallback<BaseData<String>>() {

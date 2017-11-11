@@ -124,6 +124,11 @@ public class GetSaleOrderListActivity extends BaseActivity implements View.OnCli
                         }
                         mDataBeanList.addAll(saleOrderListBean.getData());
                         mGetSaleOrderListAdapter.notifyDataSetChanged();
+                    } else {
+                        if (!mDataBeanList.isEmpty()) {
+                            mDataBeanList.clear();
+                        }
+                        mGetSaleOrderListAdapter.notifyDataSetChanged();
                     }
                 }
             }
